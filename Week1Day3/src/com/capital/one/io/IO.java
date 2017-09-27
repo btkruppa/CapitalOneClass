@@ -9,23 +9,86 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.NotSerializableException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Scanner;
 
+import com.capital.one.beans.Person;
+
 public class IO {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NotSerializableException {
 		// fileOutputStream();
 		// fileInputStream();
 
 		// fileWritter();
-//		 fileReader();
+		// fileReader();
 
-		 bufferedWritter();
-//		 bufferedReader();
-		
-		scanner();
+		// bufferedWritter();
+		// bufferedReader();
+
+		// scanner();
+
+		Person uday = new Person("Uday", 42, "male", "1234");
+
+//		writeObjectToFile(uday);
+
+		 serializePerson(uday);
+		//
+		 deserializePerson("test");
+
+		// writePersonToFile(uday);
 
 	}
-	
+
+	private static void writeObjectToFile(Serializable serializableObject) {
+		try (ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("test.txt"))) {
+			os.writeObject(serializableObject);
+			os.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void writePersonToFile(Person p) {
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter("main/resources/test.txt"))) {
+			bw.write("name:" + p.getName());
+			bw.newLine();
+			bw.write("gender:" + p.getGender());
+			bw.newLine();
+			bw.write("age:" + p.getAge());
+			bw.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void deserializePerson(String name) {
+		try (ObjectInputStream is = new ObjectInputStream(new FileInputStream(name + ".txt"))) {
+			Object objectRead = is.readObject();
+			System.out.println(objectRead);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void serializePerson(Person p) {
+		try (ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(p.getName() + ".txt"))) {
+			os.writeObject(p);
+			os.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	private static void scanner() {
 		Scanner scan;
 		try {
@@ -37,7 +100,7 @@ public class IO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	private static void bufferedReader() {
