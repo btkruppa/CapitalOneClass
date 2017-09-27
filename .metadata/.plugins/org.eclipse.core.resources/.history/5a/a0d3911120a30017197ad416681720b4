@@ -1,0 +1,25 @@
+package com.capitalone.fibonacci;
+
+public class FibonacciNos {
+
+	static int a = 0;
+	static int b = 1;
+	static int c;
+
+	private void loopmethod(int count) {
+		if (count > 0) {
+			a = a;
+			b = a + b;
+			
+
+		}
+
+	}
+
+	public static void main(String[] args) {
+		System.out.println(a);
+		System.out.println(b);
+		
+	}
+
+}

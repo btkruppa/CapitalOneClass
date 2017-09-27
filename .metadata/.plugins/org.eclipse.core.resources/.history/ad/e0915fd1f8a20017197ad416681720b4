@@ -1,0 +1,10 @@
+package com.capitalone.com.animals;
+
+public class Animal {
+
+	public void feed() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

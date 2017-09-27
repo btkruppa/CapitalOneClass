@@ -1,0 +1,26 @@
+package com.capitalone.com;
+
+
+
+public class BubbleSort {
+	
+//	public static void main(String[] args) {
+////		int[] myarr = {1,0,5,6,3,2,3,7,9,8,4};
+//		int[] myarr = {1,0};
+//////		Arrays.sort(myarr);
+//////		System.out.println(myarr);
+//////		System.out.println( Arrays.toString(myarr));
+//		Sort ab = new Sort();
+//
+//	}
+
+	public static void main(String[] args) {
+		int[] myarr = {1,0};
+//		int[] myarr = {1,0,5,6,3,2,3,7,9,8,4};
+		BubbleMySort mysort = new BubbleMySort();
+		mysort.bubblesort(myarr);
+	}
+	}
+
+	
+

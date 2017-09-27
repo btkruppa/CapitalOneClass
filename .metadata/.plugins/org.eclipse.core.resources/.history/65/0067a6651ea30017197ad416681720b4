@@ -1,0 +1,16 @@
+package com.capitalone.fibonacci;
+
+public class FibonacciNos {
+
+	int a = 0;
+
+	private void loopmethod(int[] a) {
+		// TODO Auto-generated method stub
+		for (int i = a.length) {
+			i = i++;
+			System.out.println(i);
+		}
+
+	}
+
+}

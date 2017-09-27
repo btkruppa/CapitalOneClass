@@ -1,0 +1,12 @@
+package com.capitalone.objects;
+
+public class Case {
+	
+	public static int i(1);
+	
+	if(i>=0){
+		System.out.println("child");
+
+				
+	}
+}}

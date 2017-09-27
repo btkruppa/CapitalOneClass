@@ -1,0 +1,12 @@
+package com.capitalone.string;
+
+public class StringExamples {
+ 
+	private static String s  ="hello world";
+	private static String a = "hi";
+	
+	public static void main(String[] args) {
+		System.out.println(s);
+		System.out.println(a);
+	}
+}

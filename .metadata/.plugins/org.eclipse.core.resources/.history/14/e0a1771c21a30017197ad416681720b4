@@ -1,0 +1,30 @@
+package com.capitalone.fibonacci;
+
+public class FibonacciNos {
+
+	static int a = 0;
+	static int b = 0;
+	static int c = 1;
+	 int n;
+
+	private void loopmethod(int count) {
+//		if (count > 0) {
+//			a = b;
+//			b = c;
+//			c = a+b;
+//
+//		}
+		
+		for(int i =1; i <= n; i++){
+			
+		}
+
+	}
+
+	public static void main(String[] args) {
+		System.out.println(a);
+		System.out.println(b);
+		
+	}
+
+}

@@ -1,0 +1,24 @@
+package com.capitalone.arrays;
+
+public class ArrayExamples {
+	public static void main(String[] args) {
+		int[] myArr = new int[5];
+		myArr[3] = 3;
+		System.out.println(myArr[3]);
+		myArr[3] = -1;
+		System.out.println(myArr[3]);
+		myArr[3] = 10;
+		System.out.println(myArr[3]);
+
+		for (int i = 0; i < myArr.length; i++) {
+			System.out.println(myArr[i]);
+		}
+		
+
+		for (int y : myArr) {
+			System.out.println(y);
+
+		}
+	}
+
+}

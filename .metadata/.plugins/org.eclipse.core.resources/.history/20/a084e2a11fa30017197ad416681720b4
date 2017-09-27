@@ -1,0 +1,18 @@
+package com.capitalone.fibonacci;
+
+public class FibonacciNos {
+
+	int a = 0;
+	int b =1;
+
+	private void loopmethod(int count) {
+		if (count>0) {
+			a =  a;
+			b =  a+b;
+			System.out.println(a);
+			System.out.println(b);
+		}
+			
+		} 
+
+}

@@ -1,6 +1,7 @@
 package com.capitalone.helo;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import com.capitalone.objects.School;
 
@@ -28,6 +29,8 @@ public class HELLOWORLD {
 		System.out.println(mySchool.getNumberBooks());
 	
 		mySchool.startSchool(LocalDateTime.now());
+		School.setStarttime(LocalTime.now());
+		
 
 	}
 

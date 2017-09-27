@@ -1,0 +1,17 @@
+package com.capitalone.com;
+
+public class Sort {
+
+	int temp;
+
+	public void bubblesort(int[] myarr) {
+		// TODO Auto-generated constructor stub
+		for (int j = 0; j < myarr.length-1; j++){
+			temp = myarr[j];
+			myarr[j+1]=temp;
+			myarr[j]=myarr[j+1];
+		}
+		System.out.println(myarr);
+
+	}
+}

@@ -1,0 +1,19 @@
+package com.capitalone.substring;
+
+public class SubstringAssigment {
+
+	static int n = 1;
+	static int a = 1;
+
+	public static void main(String[] args) {
+		for (int i = 0; i < a; i++) {
+			n = n + a;
+			a = a++;
+			
+		}
+
+		System.out.println(n);
+		System.out.println(a);
+		
+	}
+}

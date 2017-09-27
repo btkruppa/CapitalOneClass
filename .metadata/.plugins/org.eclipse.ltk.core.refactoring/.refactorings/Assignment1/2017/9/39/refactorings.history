@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.capitalone.com&apos; to &apos;com.capitalone.bubble&apos;&#x0A;- Original project: &apos;Assignment1&apos;&#x0A;- Original element: &apos;Assignment1/src/com.capitalone.com&apos;&#x0A;- Renamed element: &apos;Assignment1/src/com.capitalone.bubble&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings&#x0A;- Rename subpackages of the package" description="Rename package &apos;com.capitalone.com&apos;" flags="589830" hierarchical="true" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.capitalone.com" name="com.capitalone.bubble" qualified="false" references="true" stamp="1506455352466" textual="false" version="1.0"/>
+</session>

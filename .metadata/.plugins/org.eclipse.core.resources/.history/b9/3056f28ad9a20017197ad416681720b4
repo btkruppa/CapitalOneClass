@@ -1,0 +1,19 @@
+package com.capitalone.com;
+
+import java.lang.reflect.Array;
+
+public class BubbleSort {
+	
+	public static void main(int[] args) {
+		int[] myarr = {1,0,5,6,3,2,3,7,9,8,4};	
+		Array.getShort(myarr, 0);
+		System.out.println(myarr);
+		
+
+	}
+	
+	
+
+	
+	
+}

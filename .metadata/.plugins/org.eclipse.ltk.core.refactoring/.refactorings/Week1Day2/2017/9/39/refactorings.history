@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.capitalone.arrays.arrayexampls&apos; to &apos;ArrayExamples&apos;&#x0A;- Original project: &apos;Week1Day2&apos;&#x0A;- Original element: &apos;com.capitalone.arrays.arrayexampls&apos;&#x0A;- Renamed element: &apos;com.capitalone.arrays.ArrayExamples&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;arrayexampls&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.capitalone.arrays{arrayexampls.java[arrayexampls" matchStrategy="1" name="ArrayExamples" qualified="false" references="true" similarDeclarations="false" stamp="1506435045076" textual="false" version="1.0"/>
+</session>

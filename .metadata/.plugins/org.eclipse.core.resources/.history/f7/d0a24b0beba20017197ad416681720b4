@@ -1,0 +1,26 @@
+package com.capitalone.exceptions;
+
+import java.io.IOException;
+
+public class Exceptiondemo {
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	public static void method1() throws Exception{
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void method2() throws IOException{
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void method1() throws runtime{
+		// TODO Auto-generated method stub
+
+	}
+
+}

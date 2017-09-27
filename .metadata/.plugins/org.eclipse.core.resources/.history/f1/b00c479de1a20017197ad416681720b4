@@ -1,0 +1,46 @@
+package com.capitalone.com;
+
+public class BubbleMySort {
+
+	int temp;
+
+	public void bubblesort(int[] myarr) {
+		// TODO Auto-generated constructor stub
+		for(int i=num.length; i>=0; i--) {
+		for (int j = 0; j < myarr.length-1; j++){
+			temp = myarr[j];
+			myarr[j+1]=temp;
+			myarr[j]=myarr[j+1];
+			
+		}
+
+		for (int k =0; k <myarr.length; k++){
+			System.out.println(myarr[k]);
+		}
+
+	}
+}
+
+
+
+
+public void getSorted(int[] num) {
+	
+	for(int i=num.length; i>=0; i--) {
+		for (int j = 0; j < num.length-1; j++) {
+			if (num[j+1] < num[j]) {
+				this.temp = num[j];
+				num[j] = num[j+1];
+				num[j+1] = this.temp;
+			}
+
+		}
+	}
+	printValue(num);
+
+}
+public void printValue(int[] num) {
+	for(int k=0; k<num.length; k++) {
+		System.out.println(num[k]);
+	}
+}
