@@ -1,0 +1,21 @@
+package com.capitalone.io;
+
+import java.io.Serializable;
+import java.lang.invoke.SerializedLambda;
+
+public class launcherCandy {
+	
+	
+	public static void main(String[] args) {
+	
+		CandyBar jagga = new CandyBar("SAMMY",10);
+		
+		SerializeCandyBar(jagga);
+	
+		
+	}
+
+	
+	
+	
+}

@@ -1,0 +1,6 @@
+package com.capitalone.interfacedummy;
+
+public interface Shape {
+
+}
+x

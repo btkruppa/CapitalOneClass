@@ -1,0 +1,15 @@
+package com.capitalone.substring;
+
+public class SubstringAssigment {
+
+	static int n = 1;
+	static int temp = 0;
+
+	public static void main(String[] args) {
+		for (int i = 0; i < n; i++) {
+			temp = temp *n ;
+		}
+		System.out.println("this number is even "+ temp);
+
+	}
+}

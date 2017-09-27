@@ -1,0 +1,12 @@
+package com.capital.one.assigment6.even;
+
+public class EvenNumberlogic {
+
+	public static void numberLogic(int n) {
+		if((n &1) == 0){
+			System.out.println("its even");
+		}
+		System.out.println("its odd");
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.capitalone.interfacedummy;
+
+public interface Shape {
+	int size();
+	int area();
+	
+	
+
+}

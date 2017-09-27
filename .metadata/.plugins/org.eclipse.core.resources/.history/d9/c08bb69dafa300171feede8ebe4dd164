@@ -1,0 +1,39 @@
+package com.capitalone.io;
+
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.lang.invoke.SerializedLambda;
+
+public class launcherCandy {
+	
+	
+	public static void main(String[] args) {
+	
+		CandyBar jagga = new CandyBar("SAMMY",10);
+		
+		SerializeCandyBar(jagga);
+	
+		
+	}
+
+	private static void SerializeCandyBar(CandyBar candy) {
+		// TODO Auto-generated method stub
+		try {
+			ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("jaggaa.txt"));
+			os.writeObject(candy);
+			os.flush();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	
+	
+	
+}

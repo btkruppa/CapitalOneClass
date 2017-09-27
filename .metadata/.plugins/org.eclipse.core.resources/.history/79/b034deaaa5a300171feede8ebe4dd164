@@ -1,0 +1,20 @@
+package com.capitalone.substring;
+
+public class SubstringAssigment {
+
+	static int temp = 1;
+	
+	public static void main(String[] args) {
+		cal(10);
+	}
+
+	public static void cal(int n) {
+		for (int i = 1; i <= n; i++)
+	{
+			temp = temp * i ;
+		}
+		System.out.println(n);
+		System.out.println("this number is even "+ temp);
+
+	}
+}

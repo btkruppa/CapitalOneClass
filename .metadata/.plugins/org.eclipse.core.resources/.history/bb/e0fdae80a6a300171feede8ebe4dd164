@@ -1,0 +1,21 @@
+package com.capitalone.substring;
+
+public class SubstringAssigment {
+
+	static int temp = 1;
+	
+	public static void main(String[] args) {
+		cal(6);
+	}
+
+	public static void cal(int n) {
+		for (int i = n; i >= n; i++)
+	{
+			temp = temp * i ;
+			System.out.println(i);
+		}
+		System.out.println(n);
+		System.out.println(temp);
+
+	}
+}

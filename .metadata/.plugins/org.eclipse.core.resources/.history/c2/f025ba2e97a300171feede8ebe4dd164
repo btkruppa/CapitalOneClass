@@ -1,0 +1,22 @@
+package com.capitalone.io;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class IO {
+public static void main(String[] args) throws FileNotFoundException {
+	try {
+		FileOutputStream fos = new FileOutputStream("abc.txt"){
+			
+	
+		fos.write(2);
+		
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+}
+}
+}

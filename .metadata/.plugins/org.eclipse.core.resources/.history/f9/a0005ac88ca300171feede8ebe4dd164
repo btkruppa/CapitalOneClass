@@ -1,0 +1,24 @@
+package com.capitalone.interfacedummy;
+
+public class Launcher {
+	
+	public static void main(String[] args) {
+		Shape shape = new Shape() {
+			
+			@Override
+			public int getarea() {
+				// TODO Auto-generated method stub
+				return 1;
+			}
+			
+			@Override
+			public int getNumberside() {
+				// TODO Auto-generated method stub
+				return 1;
+			}
+		};
+	}
+	
+	
+
+}
