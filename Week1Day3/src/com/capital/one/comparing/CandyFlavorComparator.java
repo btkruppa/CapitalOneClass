@@ -15,6 +15,8 @@ public class CandyFlavorComparator implements Comparator<Candy> {
 		} else {
 			return 0;
 		}
+		
+		
 	}
 
 }
