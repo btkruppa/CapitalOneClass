@@ -14,7 +14,7 @@ public class Launcher {
 		CandyFlavorComparator cfc = new CandyFlavorComparator();
 				
 		Arrays.sort(myCandy, cfc);
-		
+	
 		Candy snickers = new Candy("snickers", 9, "sweet");
 		Candy kitkat = new Candy("KitKat", 7, "salty");
 		
