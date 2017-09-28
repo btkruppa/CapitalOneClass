@@ -23,4 +23,8 @@ public class Dog extends Animal {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void bark() {
+		System.out.println("bark");
+	}
 }

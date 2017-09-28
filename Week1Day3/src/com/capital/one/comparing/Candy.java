@@ -43,9 +43,6 @@ public class Candy implements Comparable<Candy> {
 
 	@Override
 	public int compareTo(Candy o) {
-		if (o.rating == this.rating) {
-			return this.getName().charAt(0) - o.getName().charAt(0);
-		}
 		return o.rating - this.rating;
 	}
 
