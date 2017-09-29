@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 public class Launcher {
 	public static void main(String[] args) {
+		
+		for(String s: args) {
+			System.out.println(s);
+		}
 		Candy[] myCandy = {
 			new Candy("snickers", 9, "sweet"),
 			new Candy("KitKat", 11, "sour"),
