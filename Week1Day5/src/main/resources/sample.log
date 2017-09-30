@@ -1,0 +1,7 @@
+2017-09-29 16:43:45 TRACE root:11 - trace message
+2017-09-29 16:43:45 DEBUG root:12 - debug message
+2017-09-29 16:43:45 INFO  root:13 - info message
+2017-09-29 16:43:45 WARN  root:14 - warn message
+2017-09-29 16:43:45 ERROR root:15 - error message
+2017-09-29 16:43:45 FATAL root:16 - fatal message
+2017-09-29 16:43:45 TRACE root:19 - Car [make=honda, year=2017, model=civic, color=white]
