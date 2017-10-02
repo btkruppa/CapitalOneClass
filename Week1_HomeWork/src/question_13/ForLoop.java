@@ -3,11 +3,15 @@ package question_13;
 public class ForLoop {
 	public static void main(String[] args) {
 
-		for (int y = 1; y <= 4; y++) {
-			for (int x = 1; x <= y; x++) {
-
-				System.out.print((x + y) % 2 + " ");
-				;
+		int initialNumber = 0;
+		for (int outerLoop = 0; outerLoop < 4; outerLoop++) {
+			for (int innerLoop = 0; innerLoop <= outerLoop; innerLoop++) {
+				System.out.print(initialNumber + " ");
+				if (initialNumber == 0) {
+					initialNumber = 1;
+				} else {
+					initialNumber = 0;
+				}
 			}
 			System.out.println();
 
