@@ -6,7 +6,7 @@ import java.util.List;
 public class PrintTriangleApplication {
 
 	public static void main(String[] args) {
-		// Using any loop without a group of print statments, print out the following triangle to the screen
+		// Using any loop without a group of print statements, print out the following triangle to the screen
 		//	0
 		//	1	0
 		//	1	0	1

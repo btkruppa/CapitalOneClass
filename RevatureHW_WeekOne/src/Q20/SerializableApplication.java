@@ -52,6 +52,7 @@ public class SerializableApplication {
 		
 		// Finished creating the file (commented above); now need to read the file to the screen
 		List<String> heroStrings = new ArrayList<String>();
+		
 		try (BufferedReader br = new BufferedReader(new FileReader("heroSet.txt"));){
 			
 			

@@ -19,7 +19,7 @@ public class Person implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public Person(String Fname, String Lname, int age, String state) {
 		super();
 		this.Fname = Fname;
