@@ -21,7 +21,9 @@ public class Stringimpl extends Stringscase {
 
 	int convertStringToInteger(String arg) {
 		int value;
-		return	Integer.parseInt((Integer.valueOf(arg) + 10));
+		//return	Integer.parseInt((Integer.valueOf(arg));
+		
+		return Integer.parseInt(arg.trim());
 		 
 		
 	}

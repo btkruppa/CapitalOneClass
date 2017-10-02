@@ -7,7 +7,10 @@ public class Launcher {
 		Stringimpl str = new Stringimpl();
 		String string = "hello";
 		String string1 = "234";
-		System.out.println(str.convertStringToInteger(string1));
+		
+		System.out.println("validate uppercase value ??" + "\n" + "Result : " +str.upperCase(string));
+        str.changeCase(string);
+        str.convertStringToInteger(string1);
 	}
 
 }
