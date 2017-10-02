@@ -1,12 +1,13 @@
+// Perform a bubble sort on the following integer array: 1,0,5,6,3,2,3,7,9,8,4
+
 package com.capitalone.revature.week1.q1;
 
 public class BubbleSort {
-	// Perform a bubble sort on the following integer array:
-	// 1,0,5,6,3,2,3,7,9,8,4
 	public static void main(String[] args) {
 		// Create an int array with data
 		int bubble[] = { 1, 0, 5, 6, 3, 2, 3, 7, 9, 8, 4 };
 
+		// Print the data before sort
 		System.out.println("Before Sort\n");
 
 		for (int b = 0; b < bubble.length; b++) {
@@ -15,7 +16,7 @@ public class BubbleSort {
 
 		int swapData = 0;
 
-		// repeat for all the data in the array
+		// repeat for all the data in the array to sort the data
 		for (int b = 0; b < bubble.length; b++) {
 
 			// compare with rest of the data in the array
@@ -32,6 +33,7 @@ public class BubbleSort {
 			}
 		}
 
+		// Print the data after sort
 		System.out.println("\n\nAfter Sort\n");
 
 		for (int b = 0; b < bubble.length; b++) {

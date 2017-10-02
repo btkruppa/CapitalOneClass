@@ -1,34 +1,41 @@
+//Class that accepts two float numbers as input and provides getters/setters to access them from outside of the class
+
 package com.capitalone.revature.week1.q11b;
 
 public class FloatNumbers {
-	float f1;
-	float f2;
+	private float first;
+	private float second;
 
 	public FloatNumbers() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public FloatNumbers(float f1, float f2) {
+	// Constructor that accepts two float variables and assigns to the private
+	// variables in the class
+	public FloatNumbers(float first, float second) {
 		super();
-		this.f1 = f1;
-		this.f2 = f2;
+		this.first = first;
+		this.second = second;
 	}
 
-	public float getF1() {
-		return f1;
+	// Retrieve First float value
+	public float getFirst() {
+		return first;
 	}
 
-	public void setF1(float f1) {
-		this.f1 = f1;
+	// Assign First float value
+	public void setFirst(float first) {
+		this.first = first;
 	}
 
-	public float getF2() {
-		return f2;
+	// Retrieve Second float value
+	public float getSecond() {
+		return second;
 	}
 
-	public void setF2(float f2) {
-		this.f2 = f2;
+	// Assign Second float value
+	public void setSecond(float second) {
+		this.second = second;
 	}
 
 }

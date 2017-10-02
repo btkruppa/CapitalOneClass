@@ -1,19 +1,20 @@
+// Write a program to store numbers from 1 to 100 in an array. Print out all
+// the even numbers from the array using enhanced FOR loop.
+
 package com.capitalone.revature.week1.q12;
 
 public class EvenNumbers {
-	// Write a program to store numbers from 1 to 100 in an array. Print out all
-	// the even numbers from the array using enhanced FOR loop.
 	public static void main(String[] args) {
 
-		int numArray[] = new int[100];
+		int numArray[] = new int[100]; // Create an array of size 100 integers
 
-		// Populating the Array
+		// Populate numArray with integers
 		for (int i = 1; i <= numArray.length; i++) {
 			numArray[i - 1] = i;
 			System.out.println("Added " + i + " to Array index " + (i - 1));
 		}
 
-		// Printing Even Numbers retrieved from numArray
+		// Retrieve and print the Even Numbers from numArray
 		System.out.println("\nEven numbers from Array\n");
 
 		for (int arrayElement : numArray) {
