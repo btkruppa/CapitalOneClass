@@ -1,0 +1,21 @@
+package com.capital.one.assigment7.comparator;
+
+import java.util.ArrayList;
+
+public class Employee {
+
+	ArrayList newemployee = new ArrayList();
+	
+	
+	
+	
+	public static void main(String[] args) {
+		EmployeeData ed = new EmployeeData();
+		
+		
+	}
+	
+	
+	
+	
+}

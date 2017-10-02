@@ -1,0 +1,17 @@
+package com.capital.one.assigment7.interfaces;
+
+public class launcher {
+
+	
+	
+	public static void main(String[] args) {
+		Employee ed = new Employee();
+		ed.getname();
+		ed.getAge();
+		ed.getDepartment();
+		
+		
+
+	}
+
+}

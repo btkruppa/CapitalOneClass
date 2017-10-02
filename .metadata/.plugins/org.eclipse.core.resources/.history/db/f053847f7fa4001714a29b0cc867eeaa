@@ -1,0 +1,9 @@
+package com.capital.one.threading;
+
+public class Launcher {
+	public static void main(String[] args) {
+		ProducerThread producer = new  ProducerThread();
+		
+	}
+
+}

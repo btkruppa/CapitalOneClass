@@ -1,0 +1,16 @@
+package com.capital.one.assigment9.arrayeven;
+
+public class StoreNumber {
+
+	private static final int[] myarr = 100;
+
+	public static void main(String[] args) {
+		StoreNumberMain snm = new StoreNumberMain();
+		snm.numberstore(myarr);
+		
+	}
+	
+	
+	
+	
+}

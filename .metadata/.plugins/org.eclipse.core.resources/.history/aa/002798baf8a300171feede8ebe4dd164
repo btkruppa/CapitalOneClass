@@ -1,0 +1,27 @@
+package com.capital.one.assigment9.arrayeven;
+
+public class StoreNumber {
+	
+	int n =1;
+	
+	public void numberLogic(int) {
+		
+		if(i=0; i< n; n++){
+			
+		}
+			
+		
+//		
+//		if((n &1) == 0)
+//		{
+//			System.out.println("Number Enter " + n);
+//			System.out.println("its even");
+//		}
+//		else{
+//			System.out.println("Number Enter " + n);
+//			System.out.println("its odd");
+//		}
+//	}
+
+	
+}

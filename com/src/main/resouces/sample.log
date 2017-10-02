@@ -1,0 +1,5 @@
+2017-09-29 16:41:31 TRACE root:10 - trace messgae
+2017-09-29 16:41:31 DEBUG root:11 - debug messgae
+2017-09-29 16:41:31 INFO  root:12 - info messgae
+2017-09-29 16:41:31 WARN  root:13 - warn messgae
+2017-09-29 16:41:31 ERROR root:14 - object message

@@ -1,0 +1,11 @@
+package com.capital.one.assigment9.arrayeven;
+
+
+public class StoreNumberMain {
+	
+	public static void main(String[] args) {
+		StoreNumber getlog = new StoreNumber();
+		getlog.StoreNumber(2);
+	}
+
+}

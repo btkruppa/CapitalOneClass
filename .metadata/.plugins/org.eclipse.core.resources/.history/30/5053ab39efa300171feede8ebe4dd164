@@ -1,0 +1,12 @@
+package com.capital.one.assigment7.comparator;
+
+public class EmployeeData {
+	
+	String name;
+	int department;
+	int age;
+	
+	
+	
+
+}

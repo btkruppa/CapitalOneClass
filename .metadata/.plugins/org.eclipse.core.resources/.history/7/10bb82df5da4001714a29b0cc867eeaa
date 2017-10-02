@@ -1,0 +1,11 @@
+package com.capitalone.collection;
+
+public class Dog {
+	private String name;
+	private String color;
+	private String breed;
+	
+	
+	
+
+}

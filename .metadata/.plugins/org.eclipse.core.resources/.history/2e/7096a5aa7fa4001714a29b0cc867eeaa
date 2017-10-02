@@ -1,0 +1,14 @@
+package com.capital.one.threading;
+
+public class ProducerThread implements Runnable{
+
+	public void run() {
+		System.out.println("Thread started and running");
+	while(true){
+		System.out.println("while method");
+	}
+		
+	}
+	
+
+}

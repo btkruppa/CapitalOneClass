@@ -1,0 +1,20 @@
+package com.capital.one.threading;
+
+public class Launcher {
+	public static void main(String[] args) {
+		ProducerThread producer = new  ProducerThread();
+		
+		Thread thread = new Thread(producer);
+		thread.start();
+		try {
+			thread.wait(10L);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
+}

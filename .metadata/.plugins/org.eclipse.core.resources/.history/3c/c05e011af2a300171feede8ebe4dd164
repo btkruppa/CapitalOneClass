@@ -1,0 +1,18 @@
+package com.capital.one.assigment7.comparator;
+
+import java.util.ArrayList;
+
+public class Employee {
+
+	public static void main(String[] args) {
+		EmployeeData ed = new EmployeeData();
+		ed.setName("uday");
+		ed.setAge(21);
+		ed.setDepartment(123455);
+		// ArrayList newemployee = new ArrayList();
+		// newemployee.add(new EmployeeData("Uday", 908, 32));
+		System.out.println(ed.getName() + " " + ed.getAge() + " " + ed.getDepartment());
+
+	}
+
+}

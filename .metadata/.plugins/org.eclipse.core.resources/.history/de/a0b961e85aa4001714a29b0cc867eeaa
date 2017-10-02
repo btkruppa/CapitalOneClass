@@ -1,0 +1,17 @@
+package com.capital.one.assigment8.arraystring;
+
+public class ArrayListLogic {
+
+	String namelist;
+
+	public void setNamelist(String namelist) {
+		this.namelist = namelist;
+	}
+
+	public void numberstore() {
+		String[] myarray = { "civic" };
+		for (i=0; myarray.length;) {
+
+		}
+	}
+}

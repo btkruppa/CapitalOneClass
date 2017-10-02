@@ -1,0 +1,10 @@
+package com.capital.one.assigment7.interfaces;
+
+public interface EmployeeDetails {
+	
+	String name();
+	int Department();
+	int Age();
+	
+
+}

@@ -1,0 +1,24 @@
+package com.capital.one.assigment9.arrayeven;
+
+
+public class StoreNumberMain {
+
+
+	public void numberstore(int[] myarr) {
+		for(int i =0; i < myarr.length; i++){
+			
+		}
+		
+		
+		
+	}
+	
+	
+//	i= 0
+//	i = n.mylenghth
+//	i++
+	
+	
+	
+
+}

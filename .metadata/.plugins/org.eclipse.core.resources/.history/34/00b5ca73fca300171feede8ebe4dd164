@@ -1,0 +1,30 @@
+package com.capital.one.assigment9.arrayeven;
+
+
+public class StoreNumberMain {
+
+
+	public void numberstore(int[] myarr) {
+		for(int i =0; i < myarr.length; i++)
+	
+			{
+				System.out.println("Number Enter " + myarr);
+				System.out.println("its even");
+			}
+			
+				System.out.println("Number Enter " + myarr);
+				System.out.println("its odd");
+			}
+		}
+		
+
+	
+	
+//	i= 0
+//	i = n.mylenghth
+//	i++
+	
+	
+	
+
+

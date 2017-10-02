@@ -1,0 +1,15 @@
+package com.capitalone.collection.fruit;
+
+import java.util.ArrayList;
+import java.util.Set;
+
+import com.capitalone.beans.Fruitname;
+
+public class Fruits {
+	
+	public static void main(String[] args) {
+		List<Fruitname> fn = new ArrayList<Fruitname>();
+		
+	}
+
+}

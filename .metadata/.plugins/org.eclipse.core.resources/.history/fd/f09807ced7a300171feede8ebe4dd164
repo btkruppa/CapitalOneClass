@@ -1,0 +1,36 @@
+package com.capital.one.assigment7.interfaces;
+
+public class Employee implements EmployeeDetails {
+
+	@Override
+	public String getname() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getDepartment() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getAge() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+//
+//	public static void main(String[] args) {
+//		EmployeeDetails ed = new Employee();
+//		ed.getname("uday");
+//		ed.getAge(10);
+//		ed.getDepartment(111);
+//		System.out.println(ed);
+//			
+//		
+//	}
+
+
+}

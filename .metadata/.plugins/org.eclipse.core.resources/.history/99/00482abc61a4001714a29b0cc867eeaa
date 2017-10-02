@@ -1,0 +1,10 @@
+package com.capitalone.beans;
+
+public class Fruitname {
+	
+	private String name;
+	private int rating;
+	private String color;
+	
+
+}
