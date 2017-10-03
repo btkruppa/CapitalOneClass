@@ -28,11 +28,11 @@ public class ArrayListOfIntegers {
 
 		System.out.println("Odd Numbers Total is: " + oddNum);
 
-		for (int j = num.size() - 1; j > 1; j--) {
+		for (int j = num.size() - 1; j >= 1; j--) {
 
 			int counter = 0;
 
-			for (int k = 2; k < j; k++) {
+			for (int k = 2; k <= j; k++) {
 
 				if (num.get(j) % k == 0) {
 
