@@ -23,10 +23,10 @@ public class ReadWriteFile {
 		}
 	
 	private static void writeObjectToFile(){
-		WriteFile wf1 = new WriteFile("Mickey:","Mouse:", 35,"Arizona");
-		WriteFile wf2 = new WriteFile("Hulk:","Hogan:", 50,"Virginia");
-		WriteFile wf3 = new WriteFile("Roger:","Rabbit:", 22,"California");
-		WriteFile wf4 = new WriteFile("Wonder:","Woman:", 18,"Montana");
+		WriteFile wf1 = new WriteFile("Mickey","Mouse", 35,"Arizona");
+		WriteFile wf2 = new WriteFile("Hulk","Hogan", 50,"Virginia");
+		WriteFile wf3 = new WriteFile("Roger","Rabbit", 22,"California");
+		WriteFile wf4 = new WriteFile("Wonder","Woman", 18,"Montana");
 		
 		List <WriteFile> list = new LinkedList<WriteFile>();
 		list.add(wf1);
@@ -63,13 +63,14 @@ public class ReadWriteFile {
 				int firstIndex = str.indexOf(':');
 				int secondIndex = str.indexOf(':',str.indexOf(':') + 1 );
 				int thirdIndex = str.indexOf(':',secondIndex + 1 );
-				int fourthIndex = str.indexOf(':',thirdIndex + 1 );
-
 			
-				System.out.println("First Name : " + str.substring(0,firstIndex));
-				System.out.println("Last Name : " + str.substring(firstIndex+1, secondIndex)); 
+				
+				System.out.println();
+			
+				System.out.println("First Name & Last Name: " + str.substring(0,firstIndex) +" " + str.substring(firstIndex+1,secondIndex));
 				System.out.println("Age : " + str.substring(secondIndex+1, thirdIndex));
-				System.out.println("State : " + str.substring(fourthIndex));
+				System.out.println("State : " + str.substring(thirdIndex+1));
+				
 				
 				System.out.println("****************************");
 				

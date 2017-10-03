@@ -31,18 +31,21 @@ public class ArrayListIntegers {
 
 		System.out.println("Odd Numbers Total is: " + oddTotal);
 		
-		System.out.println("Removing Prime Numbers and Printing numbers: ");
-		
-		ListIterator<Integer> iterator = numbers.listIterator();
-	    int next = (Integer) iterator.next();
+		for (int k = numbers.size() - 1; k >= 0; k--) {
 
-	    for (int i=2; i<numbers.size(); i++){
-	        if (i>=1){
-	            numbers.remove(i);
-	        }
-	        if (next%i!=0){
-	            numbers.remove(i);
-	        }
+			int counter = 0;
+
+			for (int l = 2; l < k; l++) {
+
+				if (numbers.get(k) % l == 0) {
+
+					counter = counter + 1;
+				}
+
+			}
+
+			if (counter == 0)
+				numbers.remove(k);
 	    }
 	        System.out.println("Removing Prime Numbers and Printing numbers: " + numbers);
 	    
