@@ -28,7 +28,7 @@ public class ArrayListOfIntegers {
 
 		System.out.println("Odd Numbers Total is: " + oddNum);
 
-		for (int j = num.size() - 1; j >= 0; j--) {
+		for (int j = num.size() - 1; j > 1; j--) {
 
 			int counter = 0;
 
