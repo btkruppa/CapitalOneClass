@@ -2,20 +2,18 @@ package Q3ReverseString;
 
 public class Reverse {
 
-	public static void main(String[] args) {
-		char[] c1 ={ 'a', 'b', 'c', 'd', 'e' }; 
-		char[] c2 = new char[c1.length];
-		
-
-
-		for (int i = 4; i < 4; i--) {
-		for (int j = 0; j > c1.length; j++) {
-			//	System.out.println(s.charAt(i));
-				c2[j]=c1[i];
-				System.out.println(c2[j]);
-		
-				}
+		public static void main(String[] args) {
+			
+			String string = "Akila Arthy";
+			char[] revChar = new char[string.length()];
+			
+			int j=0;
+			for(int i=string.length()-1; i>=0; i--){
+				revChar[j] = string.charAt(i);
+				j++;
 			}
-		
+			String reverseString = new String(revChar);
+			System.out.println(reverseString);
+		}
+
 	}
-}
