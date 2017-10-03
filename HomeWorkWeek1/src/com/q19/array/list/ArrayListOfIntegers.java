@@ -29,8 +29,21 @@ public class ArrayListOfIntegers {
 		System.out.println("Odd Numbers Total is: " + oddNum);
 
 		for (int j = num.size() - 1; j >= 0; j--) {
-			if (num.get(j) % 2 == 0)
+
+			int counter = 0;
+
+			for (int k = 2; k < j; k++) {
+
+				if (num.get(j) % k == 0) {
+
+					counter = counter + 1;
+				}
+
+			}
+
+			if (counter == 0)
 				num.remove(j);
+
 		}
 
 		System.out.println("Integers without even numbers in ArrayList: " + num);

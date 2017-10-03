@@ -12,13 +12,21 @@ public class TriangleDisplay {
 
 		int i = sc.nextInt();
 
+		int counter = 0;
+
 		for (int j = 0; j < i; j++) {
 			for (int k = 0; k <= j; k++) {
-				System.out.print(k%2 + " ");
+				
+				System.out.print(counter + " ");
+
+				if (counter == 0)
+					counter = counter + 1;
+				else
+					counter = 0;
 			}
 			System.out.println();
 		}
-		
+
 	}
 
 }
