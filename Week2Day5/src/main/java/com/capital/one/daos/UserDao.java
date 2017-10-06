@@ -14,5 +14,7 @@ public interface UserDao {
 	boolean deleteUser(User user);
 	
 	boolean updateUser(User user);
+
+	User betterFindByUsernameAndPassword(String username, String password);
 	
 }
