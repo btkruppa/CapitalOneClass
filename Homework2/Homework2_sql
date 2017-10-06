@@ -1,0 +1,130 @@
+---2.1 SELECT
+---Task – Select all records from the Employee table.
+     SELECT * FROM chinook."Employee";
+
+---Task – Select all records from the Employee table where last name is King
+    SELECT * FROM chinook."Employee"
+	                    WHERE "LastName" = 'King';
+
+---Task – Select all records from the Employee table where first name is Andrew and REPORTSTO is NULL.
+    SELECT * FROM chinook."Employee"
+                   WHERE "FirstName" = 'Andrew' AND
+                   "ReportsTo" IS Null;
+
+---2.2 ORDER BY
+----Task – Select all albums in Album table and sort result set in descending order by title.
+      SELECT * FROM chinook."Album" ORDER BY "Title" DESC;
+
+---Task – Select first name from Customer and sort result set in ascending order by city
+      set schema 'chinook';
+      SELECT "FirstName" FROM "Customer"
+               ORDER BY "City"; ---ASC  is default.
+
+---2.3 INSERT INTO
+---Task – Insert two new records into Genre table
+
+INSERT INTO chinook."Genre" ("GenreId", "Name") 
+       VALUES (26,'Blake'), (27,'Sandy')
+
+---Task – Insert two new records into Employee table
+ 
+ INSERT INTO chinook."Employee" ("EmployeeId", "LastName", "FirstName", "Title", "ReportsTo", "BirthDate", "HireDate", "Address", "City", "State", "Country", "PostalCode", "Phone", "Fax", "Email")
+ VALUES (9, 'Sandy', 'Menda', 'Software Engineer', 3, '1987/1/9', '2014/3/4', '2308 7 ST NW', 'Erie', 'PA', 'United States', '16503', '+1 (814) 467-3351', '+1 (814) 566-8772', 'sandie@testmail.com'),
+        (10, 'Blake', 'Kkrupa', 'Software Engineer', 3, '1985/08/10', '2014/9/24', '319 W 7 ST', 'Erie', 'PA', 'United States', '16503', '+1 (814) 466-9851', '+1 (814) 060-6670', 'blakek@testmail.com');
+
+---Task – Insert two new records into Customer table
+     INSERT INTO chinook."Customer" ("CustomerId", "FirstName", "LastName", "Address", "City", "Country", "PostalCode", "Phone", "Email", "SupportRepId") 
+      VALUES (60, 'Sandy', 'Menda', 'CapitalOne', '1500 capitalone drive', 'Richmond', '23233', '+1 (804) 534-9001', 'sandie@testmail.com', 3),
+             (61, 'Blake', 'Kkrupa', 'CapitalOne', '1456 Insbrook', 'Richmond', '23053', '+1 (804) 834-4531', 'blake@testmail.com', 3);
+ 
+---2.4 UPDATE
+--Task – Update Aaron Mitchell in Customer table to Robert Walter
+        set schema 'chinook';
+        UPDATE "Customer" 
+                 SET "FirstName" = 'Robert',  "LastName" = 'Walter' 
+                 WHERE "FirstName" = 'Aaron' AND
+                  "LastName" = 'Mitchell';
+
+---Task – Update name of artist in the Artist table “Creedence Clearwater Revival” to “CCR”
+                UPDATE chinook."Artist" 
+                SET "Name" = 'CCR' 
+                WHERE "Name" = 'Creedence Clearwater Revival';
+
+---2.5 LIKE
+---Task – Select all invoices with a billing address like “T%”
+                    SELECT * FROM chinook."Invoice"
+                             WHERE "Invoice"."BillingAddress" LIKE'T%';
+
+----2.6 BETWEEN
+----Task – Select all invoices that have a total between 15 and 50
+                    SELECT * FROM chinook."Invoice" 
+                              WHERE "Total" BETWEEN 15 AND 50;
+
+-----Task – Select all employees hired between 1st of June 2003 and 1st of March 2004
+                  SELECT * FROM chinook."Employee"
+                           WHERE "HireDate" BETWEEN '2003-06-01 00:00:00' 
+                            AND '2004-03-01 00:00:00';
+
+----2.7 DELETE
+----Task – Delete a record in Customer table where the name is Robert Walter (There may be constraints that rely on this, find out how to resolve them).
+	            set schema 'chinook';
+                ALTER TABLE "Album"
+	                  DROP CONSTRAINT "FK_AlbumArtistId",
+	                  ADD CONSTRAINT del_artistid
+	                  FOREIGN KEY ("ArtistId") 
+                      REFERENCES "Artist"("ArtistId")
+	                  ON DELETE CASCADE;
+	
+--7.1 INNER
+----Task – Create an inner join that joins customers and orders and specifies the name of the customer and the invoiceId.
+              set schema 'chinook';
+              SELECT * FROM "Customer" as cust 
+                       INNER JOIN chinook."Invoice" as inv on 
+                       (cust."CustomerId" = inv."CustomerId");
+
+----7.2 OUTER
+-----Task – Create an outer join that joins the customer and invoice table, specifying the CustomerId, firstname, lastname, invoiceId, and total.
+               set schema 'chinook';
+               SELECT cust."CustomerId", cust."FirstName", cust."LastName" 
+                        FROM chinook."Customer" as cust  FULL OUTER JOIN
+                         chinook."Invoice" as inv on (cust."CustomerId" = inv."CustomerId")
+                         ORDER BY cust."CustomerId";
+
+--7.3( a) RIGHT
+--Task – Create a right join that joins album and artist specifying artist name and title.
+              set schema 'chinook';
+              SELECT * FROM "Album" as al 
+              RIGHT JOIN chinook."Artist" as art on 
+               (al."ArtistId" = art."ArtistId")
+                ORDER BY "Title";
+
+--7.3 ( b) RIGHT INNER JOIN
+--Task – Create a right join that joins Playlist and playlisttrack, Track  specifying TrackId.
+           set schema 'chinook';
+           SELECT * FROM "Playlist" as pl 
+                    INNER JOIN "PlaylistTrack" as plt on 
+                    (pl."PlaylistId" = plt."PlaylistId")
+                    INNER JOIN "Track" as Tr ON (Tr."TrackId" = plt."TrackId");
+
+--7.4 CROSS
+---Task – Create a cross join that joins album and artist and sorts by artist name in ascending order.
+                   set schema 'chinook';
+                   SELECT * FROM "Album" 
+                            CROSS JOIN "Artist" as art 
+                            ORDER BY art."Name" ASC;
+
+--7.5 SELF
+--Task – Perform a self-join on the employee table, joining on the reportsto column.
+--Since there is no SELF JOIN option in pG , using INNER JOIN as Self JOIN
+               set schema 'chinook';
+               SELECT Emp1."EmployeeId" AS "Emp_ID",Emp1."FirstName" AS "Employee Name",
+                            Emp2."EmployeeId" AS "Manager ID",Emp2."FirstName" AS "Manager Name"
+                            FROM "Employee" as Emp1
+                            INNER JOIN "Employee" as Emp2  -- There is no self join option to execute from pG
+                            ON (Emp1."ReportsTo" = Emp2."EmployeeId");
+
+---8.1 Clustered Indexes
+----Task – Create a clustered index on of table of your choice
+                               set schema 'chinook';
+                               CREATE INDEX Playlist_index
+                               on "Playlist" ("PlaylistId");
