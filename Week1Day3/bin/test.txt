@@ -1,3 +1,0 @@
-name:Uday
-gender:male
-age:42
