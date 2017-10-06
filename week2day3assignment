@@ -1,0 +1,96 @@
+--Task1-- Select all records from the Employee table.
+--set schema chinook,
+select * from chinook."Employee";
+
+--Task2--Select all records from the Employee table where last name is King.
+select * from chinook."Employee" where "LastName"='King';
+
+--Task3 – Select all records from the Employee table where first name is Andrew and REPORTSTO is NULL.
+select * from chinook."Employee" where "FirstName"='Andrew' and "ReportsTo" is null;
+
+--Task – Select all albums in Album table and sort result set in descending order by title.
+select * from chinook."Album" order by("Title") desc;
+
+---Task – Select first name from Customer and sort result set in ascending order by city
+select "FirstName" from chinook."Customer" order by("City")
+
+---Task – Insert two new records into Genre table
+select * from chinook."Genre" 
+insert into chinook."Genre" ("GenreId","Name") values (26,'Carnatic');
+insert into chinook."Genre" ("GenreId","Name") values (27,'Folk');
+
+
+--Task – Insert two new records into Employee table
+
+insert into chinook."Employee" ("EmployeeId","LastName","FirstName","Title","ReportsTo","BirthDate","HireDate","Address","City","State","Country","PostalCode","Phone","Fax","Email") 
+values (10,'David','Thompson','IT',1,'1968-11-09 00:00:00','2004-02-09 00:00:00','22 NJ Road NW','Richmond','VA','Canada','T2P 3M4','+1 (403) 162-3434','+1 (403) 132-6712','test1@gmail.com');
+
+--Task – Insert two new records into Customer table
+
+insert into chinook."Customer" ("CustomerId","LastName","FirstName","Company","Address","City","State","Country","PostalCode","Phone","Fax","Email","SupportRepId") 
+values (61,'Sarah','Thompson','CapitalBank','22 NJ Road NW','Richmond','VA','Canada','T2P 3M4','+1 (403) 162-3434','+1 (403) 132-6712','test2@gmail.com',5);
+		
+
+--Task – Update Aaron Mitchell in Customer table to Robert Walter
+update chinook."Customer" set "FirstName"='Robert' where "CustomerId"=32;
+update chinook."Customer" set "LastName"='Walter' where "FirstName"='Robert';
+--Task – Update name of artist in the Artist table “Creedence Clearwater Revival” to “CCR”
+select * from chinook."Artist"
+update chinook."Artist" set "Name"='CCR' where "Name"='Creedence Clearwater Revival';
+
+--Task – Select all invoices with a billing address like “T%”
+select * from chinook."Invoice" where "BillingAddress" like 'T%'
+
+--Task – Select all invoices that have a total between 15 and 50
+select * from chinook."Invoice" where "Total" between 15 and 50;
+
+--Task – Select all employees hired between 1st of June 2003 and 1st of March 2004
+Select * from chinook."Employee" where "HireDate" between '2003-06-01' and '2004-03-01';
+
+
+--Delete a record in Customer table where the name is Robert Walter 
+(There may be constraints that rely on this, find out how to resolve them).
+--ALTER TABLE your_table DROP CONSTRAINT constraint_name;
+ALTER TABLE "Invoice" DROP CONSTRAINT "FK_InvoiceCustomerId";
+
+Delete from "Customer" where "FirstName"='Robert'
+rollback;
+
+--Create an inner join that joins customers and orders and specifies the name of the customer and the invoiceId.
+
+--Task – Create an inner join that joins customers and orders and specifies the name of the customer and the invoiceId.
+
+
+set schema 'chinook';
+select "FirstName","InvoiceId" from "Customer" as cust
+join "Invoice" as inv on (inv."CustomerId"=cust."CustomerId")
+
+
+--Create an outer join that joins the customer and invoice table, 
+--specifying the CustomerId, firstname, lastname, invoiceId, and total.
+set schema 'chinook';
+select cust."CustomerId" ,"FirstName","LastName", inv."InvoiceId",inv."Total" from "Customer" as cust 
+full outer join chinook."Invoice" as inv on (inv."CustomerId"= cust."CustomerId");
+
+--Task – Create a right join that joins album and artist specifying artist name and title.
+select ar."Name",al."Title" from "Album" al 
+right outer join "Artist" ar on(al."ArtistId"=ar."ArtistId");
+
+
+
+--7.4 CROSS Task – Create a cross join that joins album and artist and sorts by artist name in ascending order.
+
+select * from "Album"  
+cross join "Artist" ar
+order by ar."Name" ASC;
+
+--7.5 SELF Task – Perform a self-join on the employee table, joining on the reportsto column.
+Select * from "Employee" e1,"Employee" e2 where e1."ReportsTo"=e2."ReportsTo" order by e2."ReportsTo"
+
+--Task – Create a clustered index on of table of your choice
+
+create index i1 on "Employee"("EmployeeId","ReportsTo");
+
+
+
+
