@@ -45,6 +45,8 @@ public class ParallelStream {
 				})
 				.collect(Collectors.toList());
 		
+		System.out.println(filteredList.getClass().getName());
+		
 		System.out.println("original: " + myList);
 		System.out.println("filtered: " + filteredList);
 	}

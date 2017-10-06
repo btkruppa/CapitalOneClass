@@ -23,7 +23,7 @@ public class ReduceExample {
 					}
 					return false;
 				})
-				.map((BankAccount element) -> {
+				.map((element) -> {
 					return element.getBalance();
 				})
 				.sequential() // convert it to sequential stream for the reduce function
