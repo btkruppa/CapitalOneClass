@@ -16,7 +16,11 @@ public class LoginScreen {
 		String username = scan.nextLine();
 		System.out.println("Please enter a password: ");
 		String password = scan.nextLine();
-		User user = ud.findByUsernameAndPassword(username, password);
+		
+		// allows sql injection
+//		User user = ud.findByUsernameAndPassword(username, password);
+		
+		User user = ud.betterFindByUsernameAndPassword(username, password);
 		
 		if(user != null) {
 			System.out.println("successfully logged in user details " + user);
