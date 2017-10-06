@@ -50,9 +50,17 @@ Select * from chinook."Employee" where "HireDate" between '2003-06-01' and '2004
 
 --Delete a record in Customer table where the name is Robert Walter 
 (There may be constraints that rely on this, find out how to resolve them).
---ALTER TABLE your_table DROP CONSTRAINT constraint_name;
-ALTER TABLE "Invoice" DROP CONSTRAINT "FK_InvoiceCustomerId";
-
+ALTER TABLE "Invoice"     
+                DROP CONSTRAINT "FK_InvoiceCustomerId",
+                ADD CONSTRAINT "FK_InvoiceCustomerId" FOREIGN KEY ("CustomerId") REFERENCES "Customer"("CustomerId")
+                ON DELETE CASCADE;
+ 
+ALTER TABLE "InvoiceLine"
+                DROP CONSTRAINT "FK_InvoiceLineInvoiceId",
+                ADD CONSTRAINT "FK_InvoiceLineInvoiceId" FOREIGN KEY ("InvoiceId") REFERENCES "Invoice" ("InvoiceId")
+                ON DELETE CASCADE;      
+ 
+DELETE FROM "Customer" WHERE "FirstName" = 'Robert'  and "LastName" = 'Walter';
 Delete from "Customer" where "FirstName"='Robert'
 rollback;
 
