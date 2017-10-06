@@ -78,22 +78,25 @@ INSERT INTO chinook."Genre" ("GenreId", "Name")
 --7.1 INNER
 ----Task – Create an inner join that joins customers and orders and specifies the name of the customer and the invoiceId.
               set schema 'chinook';
-              SELECT * FROM "Customer" as cust 
-                       INNER JOIN chinook."Invoice" as inv on 
+              SELECT "FirstName" || ' ' || "LastName" as CustomerName, "InvoiceId"
+                   FROM "Customer" as cust 
+                  INNER JOIN chinook."Invoice" as inv on 
                        (cust."CustomerId" = inv."CustomerId");
 
 ----7.2 OUTER
 -----Task – Create an outer join that joins the customer and invoice table, specifying the CustomerId, firstname, lastname, invoiceId, and total.
                set schema 'chinook';
-               SELECT cust."CustomerId", cust."FirstName", cust."LastName" 
-                        FROM chinook."Customer" as cust  FULL OUTER JOIN
-                         chinook."Invoice" as inv on (cust."CustomerId" = inv."CustomerId")
+               SELECT cust."CustomerId", cust."FirstName", cust."LastName”,
+                     "InvoiceId", "Total" FROM chinook."Customer" 
+                        as cust  FULL OUTER JOIN
+                         chinook."Invoice" as inv on 
+                   (cust."CustomerId" = inv."CustomerId")
                          ORDER BY cust."CustomerId";
 
 --7.3( a) RIGHT
 --Task – Create a right join that joins album and artist specifying artist name and title.
               set schema 'chinook';
-              SELECT * FROM "Album" as al 
+              SELECT "Name", "Title" FROM "Album" as al 
               RIGHT JOIN chinook."Artist" as art on 
                (al."ArtistId" = art."ArtistId")
                 ORDER BY "Title";
