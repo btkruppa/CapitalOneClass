@@ -1,0 +1,79 @@
+--2.1 SELECT
+--2.0 SQL Queries
+SET SCHEMA 'chinook';
+
+SELECT * FROM chinook."Employee";
+
+SELECT * FROM "Employee" WHERE "LastName"='King';
+
+SELECT * FROM "Employee" WHERE "FirstName"='Andrew' AND "ReportsTo" IS NULL;
+
+
+--2.2 ORDER BY
+SELECT * FROM "Album" ORDER BY "Title" DESC;
+
+SELECT "FirstName" FROM "Customer" ORDER BY "City" ASC;
+
+
+--2.3 INSERT INTO
+
+SELECT * from "Genre";
+INSERT INTO "Genre" ("GenreId","Name") VALUES (27,'surprise'), (28, 'books');
+
+SELECT * from "Employee";
+
+INSERT INTO "Employee" ("EmployeeId", "LastName", "FirstName", "Title", "ReportsTo", "BirthDate", "HireDate", "Address", "City", "State", "Country", "PostalCode", "Phone", "Fax","Email" )
+VALUES (9, 'Smith', 'Bob', 'Project Manager', '2', '02-17-1984', '03-05-2001', '12345 OOPH drive', 'Mumbai', 'MA', 'France', '23114', '8049231222', '8787121211', 'smith.bob@capitalone.com'),
+(10, 'John', 'Paul', 'Manager', '6', '03-13-1994', '11-05-2001', '12245 cler drive', 'Delhi', 'MA', 'India', '23114', '8078823121', '8718711111', 'johl.paul@capitalone.com')
+
+SELECT * from "Customer";
+INSERT INTO "Customer" ("CustomerId", "FirstName", "LastName", "Company", "Address", "City", "State", "Country", "PostalCode", "Phone", "Fax", "Email", "SupportRepId")
+VALUES (60, 'Pappu', 'uppu', 'cap1', '305 cd drive', 'glen Allen', 'VA', 'USA', '20010', '8043431234', '9801234123', 'pappu.uppu@gmail.com', '3'),
+(61, 'dub', 'Sammy', 'zipline', '200 drive lane', 'glen Allen', 'VA', 'USA', '12310', '7323431234', '7321234123', 'pdabbu.sam@gmail.com', '5')
+
+
+--2.4 UPDATE
+SELECT * from "Customer" WHERE "FirstName"='Aaron'
+UPDATE "Customer" SET "FirstName"='Robert',"LastName"='Walter' WHERE "CustomerId"=29
+
+SELECT * from "Artist" WHERE "Name"='Creedence Clearwater Revival'
+UPDATE "Artist" SET "Name"='CCR' WHERE "ArtistId"=76
+SELECT * from "Artist" WHERE "Name"='CCR'
+
+
+--2.5 LIKE
+SELECT * FROM "Invoice" WHERE "BillingAddress" LIKE 'T%'
+
+
+--2.6 BETWEEN
+SELECT * FROM "Invoice" WHERE "Total" BETWEEN 15 AND 50;
+SELECT * FROM "Employee" WHERE "HireDate" BETWEEN '2003-06-01' and '2004-3-01';
+
+
+--2.7 DELETE
+set schema 'chinook';
+ALTER TABLE "Invoice" DROP CONSTRAINT "FK_InvoiceCustomerId", 
+ADD CONSTRAINT "FK_InvoiceCustomerId" FOREIGN KEY ("CustomerId") REFERENCES "Customer"("CustomerId") ON DELETE CASCADE;
+             
+ALTER TABLE "InvoiceLine" DROP CONSTRAINT "FK_InvoiceLineInvoiceId",
+ADD CONSTRAINT "FK_InvoiceLineInvoiceId" FOREIGN KEY ("InvoiceId") REFERENCES "Invoice" ("InvoiceId") ON DELETE CASCADE;                
+                 
+DELETE FROM "Customer" WHERE "FirstName" = 'Robert'  and "LastName" = 'Walter';
+
+--7.1 JOINS
+SELECT cus."FirstName", inv."InvoiceId" FROM "Customer" AS cus JOIN "Invoice" AS inv ON (cus."CustomerId" =inv."CustomerId")
+
+--7.2 OUTER
+SELECT cus."CustomerId",cus."FirstName", cus."LastName",inv."InvoiceId", inv."Total" FROM "Customer" AS cus  FULL OUTER JOIN "Invoice" AS inv ON (cus."CustomerId" =inv."CustomerId")
+
+--7.3 Right
+SELECT art."Name", alb."AlbumId" FROM "Artist" AS art RIGHT JOIN "Album" AS alb ON (alb."ArtistId" = art."ArtistId")
+
+--7.4 CROSS
+SELECT * FROM "Album" as alb CROSS JOIN "Artist" AS art ORDER BY art."Name" ASC
+
+--7.5 SELF
+SELECT * FROM "Employee" as emp1, "Employee" as emp2 WHERE emp1."ReportsTo"=emp2."ReportsTo"
+
+--8.1 Clustered Indexes
+CREATE INDEX idx ON "Employee" ("EmployeeId", "Title")
