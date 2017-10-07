@@ -1,0 +1,127 @@
+set SCHEMA 'chinook';
+-- 2.1 SELECT
+--Task – Select all records from the Employee table.
+SELECT * FROM "Employee";
+
+--Task – Select all records from the Employee table where last name is King.
+SELECT * FROM "Employee" WHERE "LastName" = 'King';
+
+--Task – Select all records from the Employee table where first name is Andrew and REPORTSTO is NULL.
+SELECT * FROM "Employee" WHERE "FirstName" = 'Andrew' AND "ReportsTo" IS NULL;
+
+--2.2 ORDER BY
+--Task – Select all albums in Album table and sort result set in descending order by title.
+SELECT * FROM "Album" ORDER BY "Title" DESC;
+
+--Task – Select first name from Customer and sort result set in ascending order by city
+SELECT "FirstName" FROM "Customer" ORDER BY "City" ASC;
+
+--2.3 INSERT INTO
+--Task – Insert two new records into Genre table
+INSERT INTO "Genre"
+	VALUES (26, 'Discovery'),(27, 'Geograph');
+	
+--Task – Insert two new records into Employee table
+INSERT INTO "Employee"
+	VALUES (9, 'Bruce', 'Tailor', 'IT Staff', 6, '1977-10-12', '2010-10-12', '11200 Arbor ave', 'Edmonton', 'AB', 'Canada',
+            'T5K 2N1', '+1 (201) 777-999', '+1 (201) 888-000', 'bruce@chinookcorp.com'), (10, 'Gates', 'Chill', 'IT Manager',
+             1, '1965-01-12', '2005-05-12', '125 66th ave', 'Edmonton', 'AB', 'Canada', 'T5K 2N1', '+1 (444) 777-999', 
+             '+1 (444) 888-000', 'gatese@chinookcorp.com');
+
+--Task – Insert two new records into Customer table
+INSERT INTO "Customer"
+	VALUES (60, 'Karan', 'Dadar', 'CapitalOne', '11200 Arbor ave', 'Edmonton', 'AB', 'Canada',
+            'T5K 2N1', '+1 (201) 777-999', '+1 (201) 888-000', 'Karan@chinookcorp.com', 3), (61, 'Stancy', 'Wells', 'CapitalOne',
+             '123 street', 'Redmond', 'WA', 'USA','98052-8300', '+1 (444) 987-77', '+1 (444) 987-888',   'Wells@chinookcorp.com', 5);
+
+
+--2.4 UPDATE
+--Task – Update Aaron Mitchell in Customer table to Robert Walter
+UPDATE "Customer" SET ("FirstName", "LastName") = ('Robert', 'Walter')
+  	WHERE "FirstName" = 'Aaron';
+
+--Task – Update name of artist in the Artist table “Creedence Clearwater Revival” to “CCR”
+UPDATE "Artist" SET "Name" = 'CCR' 
+                WHERE "Name" = 'Creedence Clearwater Revival';
+
+--2.5 LIKE
+--Task – Select all invoices with a billing address like “T%”
+SELECT * FROM "Invoice" WHERE "Invoice"."BillingAddress" LIKE 'T%';
+
+--2.6 BETWEEN
+--Task – Select all invoices that have a total between 15 and 50
+SELECT * FROM "Invoice" WHERE "Total" BETWEEN 15 AND 50;
+
+--Task – Select all employees hired between 1st of June 2003 and 1st of March 2004
+SELECT * FROM "Employee"
+        WHERE "HireDate" BETWEEN '2003-06-01' AND '2004-03-01';
+
+--2.7 DELETE
+--Task – Delete a record in Customer table where the name is Robert Walter (There may be constraints that rely on this, find out how to resolve them).
+ALTER TABLE "Invoice" DROP CONSTRAINT "FK_InvoiceCustomerId";
+ 
+ALTER TABLE "Invoice" ADD CONSTRAINT "FK_InvoiceCustomerId"
+FOREIGN KEY ("CustomerId")
+REFERENCES "Customer" ("CustomerId")
+ON DELETE CASCADE;
+ 
+ALTER TABLE "InvoiceLine" DROP CONSTRAINT "FK_InvoiceLineInvoiceId";
+ 
+ALTER TABLE "InvoiceLine" ADD CONSTRAINT "FK_InvoiceLineInvoiceId"
+FOREIGN KEY ("InvoiceId")
+REFERENCES "Invoice" ("InvoiceId")
+ON DELETE CASCADE;
+ 
+DELETE FROM "Customer" where "FirstName" = 'Robert' AND "LastName" = 'Walter'
+
+
+--7.0 JOINS
+--In this section you will be working with combing various tables through the use of joins. You will work with outer, inner, right, left, cross, and self joins.
+--7.1 INNER
+--Task – Create an inner join that joins customers and orders and specifies the name of the customer and the invoiceId.
+SELECT (cust."FirstName" || ' ' || cust."LastName") as customer_name, inv."InvoiceId"
+		FROM "Customer" cust INNER JOIN "Invoice" inv ON (cust."CustomerId" = inv."CustomerId");
+
+--7.2 OUTER
+--Task – Create an outer join that joins the customer and invoice table, specifying the CustomerId, firstname, lastname, invoiceId, and total.
+SELECT cust."CustomerId", cust."FirstName", cust."LastName", inv."InvoiceId", inv."Total" 
+               FROM "Customer" as cust FULL JOIN "Invoice" as inv ON cust."CustomerId" = inv."CustomerId";
+
+
+--7.3 RIGHT
+--Task – Create a right join that joins album and artist specifying artist name and title.
+SELECT art."Name", alb."Title" FROM "Album" as alb RIGHT JOIN "Artist" as art ON alb."ArtistId" = art."ArtistId";
+
+--Task – Create a right join that joins Playlist and playlisttrack, Track  specifying TrackId.
+        
+SELECT * FROM "Playlist" as pl 
+           INNER JOIN "PlaylistTrack" as plt on 
+            (pl."PlaylistId" = plt."PlaylistId")
+            INNER JOIN "Track" as Tr ON (Tr."TrackId" = plt."TrackId");
+
+
+--7.4 CROSS
+--Task – Create a cross join that joins album and artist and sorts by artist name in ascending order.
+SELECT * FROM "Album" as alb CROSS JOIN "Artist" as art ORDER BY art."Name";
+
+--7.5 SELF
+--Task – Perform a self-join on the employee table, joining on the reportsto column.
+select 
+E."EmployeeId",
+E."FirstName",
+E."LastName",
+SE."FirstName" as SE_FirstName,
+SE."LastName" as SE_LastName,
+E."ReportsTo",
+SE."ReportsTo" as SE_Reprtsto
+from "Employee" E 
+JOIN "Employee" SE ON E."ReportsTo" = SE."ReportsTo" 
+where E."ReportsTo" is not null and SE."ReportsTo" is not null
+order by E."EmployeeId" asc;
+
+
+--8.0 Indexes
+--In this section you will be creating Indexes on various tables. Indexes can speed up performance of reading data.
+--8.1 Clustered Indexes
+--Task – Create a clustered index on of table of your choice
+CREATE INDEX play_index ON "Playlist" ("PlaylistId", "Name");
