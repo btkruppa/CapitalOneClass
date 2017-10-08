@@ -1,0 +1,119 @@
+--2.1 SELECT
+--Task – Select all records from the Employee table.
+
+select * from chinook."Employee";
+
+--Task – Select all records from the Employee table where last name is King.
+select * from chinook."Employee" where "LastName"='King';
+
+--Task – Select all records from the Employee table where first name is Andrew and REPORTSTO is NULL.
+select * from chinook."Employee" where "FirstName" = 'Andrew' and "ReportsTo" is NULL;
+
+2.2 ORDER BY
+--Task – Select all albums in Album table and sort result set in descending order by title.
+select * from chinook."Album" order by "Title" desc;
+--Task – Select first name from Customer and sort result set in ascending order by city
+—select "FirstName", "City" from chinook."Customer" order by "City" asc;
+select "FirstName" from chinook."Customer" order by "City" asc;
+
+--2.3 INSERT INTO
+--Task – Insert two new records into Genre table
+insert into chinook."Genre" values
+(26, 'Music'),
+(27, 'TV Night');
+
+--Task – Insert two new records into Employee table
+insert into chinook."Employee" ("EmployeeId", "LastName", "FirstName", "Title", "ReportsTo", "BirthDate", "HireDate", "Address", 
+                                "City", "State", "Country", "PostalCode", "Phone", "Fax", "Email") VALUES
+(9, 'Brunda', 'Prakash', 'Testing Specialist', 1, '1980-10-04 00:00:00', '2009/07/14 00:00:00', '11871 Dublin road', 
+ 'Glen Allen', 'VA', 'USA', '23060', '804-494-3131', '804-321-9191', 'br.prk@hotmail.com'),
+(10, 'Bhargavi', 'Manchem', 'Senior Testing Specialist', 6, '1986/11/23 00:00:00', '2013/11/14 00:00:00', 
+ '11789 Pouncey track road', 'Glen Allen', 'VA', 'USA', '23233', '804-440-2981', '804-097-9765', 'bh.man@gmail.com');
+
+--Task – Insert two new records into Customer table
+insert into chinook."Customer" ("CustomerId","LastName","FirstName","Company","Address","City","State","Country",
+                                "PostalCode","Phone","Fax","Email","SupportRepId") VALUES
+(60, 'Daniel', 'David', 'Wells Fargo', '876 West Broad Street', 'Richmond', 'VA', 'USA', '23233', '804-333-4949', 
+ '903-323-2323', 'dd@gmail.com', 3),
+(61, 'Marsh', 'Jonathan', 'Suntrust', '971 East Street', 'Chestfield', 'VA', 'USA', '232060', '804-333-4219', 
+ '903-323-2330', 'ed@gmail.com', 5);
+
+2.4 UPDATE
+Task – Update Aaron Mitchell in Customer table to Robert Walter
+update chinook."Customer" set "FirstName"='Robert', "LastName"='Walter' where "CustomerId"=32;
+
+Task – Update name of artist in the Artist table “Creedence Clearwater Revival” to “CCR”
+update chinook."Artist" set "Name" = 'CCR' where "ArtistId" = 76;
+
+2.5 LIKE
+Task – Select all invoices with a billing address like “T%”
+select * from chinook."Invoice" where "BillingAddress" like 'T%';
+
+2.6 BETWEEN
+Task – Select all invoices that have a total between 15 and 50
+select * from chinook."Invoice" where "Total" between '15' and '50';
+
+Task – Select all employees hired between 1st of June 2003 and 1st of March 2004
+select * from chinook."Employee" where "HireDate" between '2003-01-06 00:00:00'and '2004-01-03 00:00:00';
+
+2.7 DELETE (Pending)
+Task – Delete a record in Customer table where the name is Robert Walter 
+(There may be constraints that rely on this, find out how to resolve them).
+-- to get all the columns from Invoice table to get CustomerId for Robert Walter
+select * from chinook."Invoice" where "CustomerId" = (select "CustomerId" from chinook."Customer" 
+	where "FirstName" ='Robert' and "LastName"='Walter');
+--to get invoiceId from Invoice table for Robert Walter
+select "InvoiceId" from chinook."Invoice" where "CustomerId" = (select "CustomerId" from chinook."Customer" 
+	where "FirstName" ='Robert' and "LastName"='Walter');
+-- to get all columns from InvoiceLine table for Robert Walter
+select * from chinook."InvoiceLine" where "InvoiceId" in (select "InvoiceId" from chinook."Invoice" 
+                                    where "CustomerId" = (select "CustomerId" from chinook."Customer" 
+	                                where "FirstName" ='Robert' and "LastName"='Walter'));
+-- now we got all the InvoiceLineId for Robert Walter and we can delete the InvoiceLineId, then delete InvoiceID and then delete the customer
+delete from chinook."InvoiceLine" where "InvoiceId" in (select "InvoiceId" from chinook."Invoice" 
+                                    where "CustomerId" = (select "CustomerId" from chinook."Customer" 
+	                                where "FirstName" ='Robert' and "LastName"='Walter'));
+delete from chinook."Invoice" where "CustomerId" = (select "CustomerId" from chinook."Customer" 
+	where "FirstName" ='Robert' and "LastName"='Walter');
+delete from chinook."Customer" where "FirstName"='Robert' and "LastName"='Walter';
+
+7.0 JOINS
+In this section you will be working with combing various tables through the use of joins. You will work with outer, inner, right, left, cross, and self joins.
+7.1 INNER
+Task – Create an inner join that joins customers and orders and specifies the name of the customer and the invoiceId.
+select C1."FirstName", C1."LastName", C2."InvoiceId" 
+from chinook."Customer" as C1 inner join chinook."Invoice" as C2
+		on C1."CustomerId" = C2."CustomerId";
+
+7.2 OUTER
+Task – Create an outer join that joins the customer and invoice table, specifying the CustomerId, firstname, lastname, invoiceId, and total.
+select C1."CustomerId", C1."FirstName", C1."LastName", C2."InvoiceId", C2."Total" 
+from chinook."Customer" as C1
+	full outer join chinook."Invoice" as C2
+    on C1."CustomerId" = C2."CustomerId";
+
+7.3 RIGHT
+Task – Create a right join that joins album and artist specifying artist name and title.
+select A2."Name", A1."Title"
+from chinook."Album" as A1
+	right join chinook."Artist" as A2
+    on A1."ArtistId" = A2."ArtistId";
+
+7.4 CROSS
+Task – Create a cross join that joins album and artist and sorts by artist name in ascending order.
+select * from chinook."Album" 
+	cross join chinook."Artist" as A1 order by A1."Name" asc;
+
+7.5 SELF
+Task – Perform a self-join on the employee table, joining on the reportsto column.
+select E1.*
+from chinook."Employee" as E1, chinook."Employee" as E2
+where E1."ReportsTo" = E2."ReportsTo";
+
+8.0 Indexes
+In this section you will be creating Indexes on various tables. Indexes can speed up performance of reading data.
+8.1 Clustered Indexes
+Task – Create a clustered index on of table of your choice
+create index idx_CustName on chinook."Customer"("FirstName", "LastName");
+
+
