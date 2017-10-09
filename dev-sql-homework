@@ -1,0 +1,80 @@
+SET SCHEMA 'chinook';
+
+--2.1
+SELECT * FROM "Employee";
+SELECT * FROM "Employee" where "LastName" = 'King';
+SELECT * FROM "Employee" where "FirstName" = 'Andrew' AND "ReportsTo" is NULL;
+
+--2.2
+SELECT * FROM "Album" ORDER BY "Title" DESC;
+SELECT "FirstName" FROM "Customer" ORDER BY "City" ASC;
+
+--2.3
+INSERT INTO "Genre" ("GenreId","Name")
+			VALUES	(100,'Devi'),
+            		(101, 'Gadipati');
+
+INSERT INTO "Employee" ("EmployeeId", "LastName", "FirstName", "Title", "ReportsTo", "BirthDate", "HireDate", "Address", "City", "State", "Country", "PostalCode", "Phone", "Fax", "Email")
+				VALUES (10, 'Gadipati', 'Devi', 'IT Staff', 7, '1955-02-19', '1971-03-17', '141 CapitalOne Dr', 'Richmond', 'VA', 'USA', '23060', '+1 (804) 212-8763', '+1 (804) 212-8764', 
+                        'devi@chinookcorp.com'),
+            			(11, 'Miller', 'Mike', 'Sales Manager', 8, '1945-06-29', '1968-08-03', '156 CapitalOne Dr', 'Glen Allen', 'VA', 'USA', '23059', '+1 (804) 315-8276', '+1 (804) 315-8277', 
+                        'mike@chinookcorp.com');
+
+INSERT INTO "Customer" ("CustomerId", "FirstName", "LastName", "Company", "Address", "City", "State", "Country", "PostalCode", "Phone", "Fax", "Email", "SupportRepId")
+			 VALUES    (100, 'Dan', 'Taylor', 'CapitalOne', '654 CapitalOne Dr', 'Richmond', 'VA', 'USA', '23233', '+11 098 134 3654', '+11 098 134 3657',
+                        'test@test.com', 6),
+						(101, 'Mark', 'Bush', 'Verizon', '124 Test Dr', 'Henrico', 'VA', 'USA', '23294', '+11 254 121 347 1324', '+11 254 121 1325', 
+                         'test@verizon.com', '5');
+                         
+--2.4
+UPDATE "Customer" SET "FirstName" = 'Robert', "LastName" = 'Walter' WHERE "FirstName" = 'Aaron';
+
+UPDATE "Artist" SET "Name" = 'CCR' WHERE "Name" = 'Creedence Clearwater Revival';
+
+--2.5
+SELECT * FROM "Invoice"  WHERE "BillingAddress" LIKE 'T%'
+
+--2.6
+SELECT * FROM "Invoice"  WHERE "Total" BETWEEN 15 AND 50;
+SELECT * FROM "Employee" WHERE "HireDate"  BETWEEN '2003-06-01' AND '2004-03-01';
+
+--2.7
+ALTER TABLE "Invoice" DROP CONSTRAINT "FK_InvoiceCustomerId";
+
+ALTER TABLE "Invoice" ADD CONSTRAINT "FK_InvoiceCustomerId" 
+FOREIGN KEY ("CustomerId")
+REFERENCES "Customer" ("CustomerId")
+ON DELETE CASCADE;
+
+ALTER TABLE "InvoiceLine" DROP CONSTRAINT "FK_InvoiceLineInvoiceId";
+
+ALTER TABLE "InvoiceLine" ADD CONSTRAINT "FK_InvoiceLineInvoiceId" 
+FOREIGN KEY ("InvoiceId")
+REFERENCES "Invoice" ("InvoiceId")
+ON DELETE CASCADE;
+
+DELETE FROM "Customer" where "FirstName" = 'Robert' AND "LastName" = 'Walter'
+
+--7.1
+SELECT (cust."FirstName" || ' ' || cust."LastName") customer_name, inv."InvoiceId"
+		FROM "Customer" cust INNER JOIN "Invoice" inv ON (cust."CustomerId" = inv."CustomerId") ORDER BY customer_name;
+
+
+--7.2
+SELECT cust."CustomerId", cust."FirstName", cust."LastName", inv."InvoiceId", inv."Total" 
+		FROM "Customer" AS cust FULL OUTER JOIN "Invoice" AS inv ON cust."CustomerId" = inv."CustomerId";
+
+--7.3
+SELECT ar."Name", al."Title" FROM 
+			"Album" AS al RIGHT JOIN "Artist" AS ar ON al."ArtistId" = ar."ArtistId";
+--7.4
+SELECT * FROM "Album" CROSS JOIN "Artist" AS art ORDER BY art."Name" ASC
+
+--7.5
+SELECT emp1.* FROM "Employee" AS emp1, 
+					"Employee" AS emp2
+					WHERE emp1."ReportsTo" = emp2."ReportsTo";
+
+8.1
+CREATE INDEX track_index ON "Track" ("TrackId");
+
