@@ -17,7 +17,7 @@ create table ers_reimbursement
 create table ers_reimbursement_status
 (
 	reimb_status_id serial primary key,
-    remimb_status varchar(10)
+    reimb_status varchar(10)
 );
 
 create table ers_users
@@ -60,4 +60,12 @@ references ers_user_roles (ers_user_role_id);
 
 alter table ers_users add constraint ers_users_unv1 unique (ers_username, user_email);
 
+insert into ers_reimbursement_status (reimb_status) values ('Approved'), ('Denied');
+insert into ers_user_roles (user_role) values ('Employee'),('Finance Manager');
+insert into ers_users (ers_username,ers_password,user_first_name,user_last_name,user_email,user_role_id)
+	values ('johndoe','password','John','Doe','johndoe@gmail.com',1), ('joemanager','password','Joe','Thomas',
+             'jthomas@gmail.com',2);
 insert into ers_reimbursement_type (reimb_type) values ('Lodging'), ('Travel'), ('Food'), ('Other'); 
+insert into ers_reimbursement (reimb_amount,reimb_submitted,reimb_resolved,reimb_description,reimb_receipt,
+                              reimb_author,reimb_resolver,reimb_status_id,reimb_type_id)
+                              values (10,current_timestamp,null,'Chipotle','text',1,1,1,3);
