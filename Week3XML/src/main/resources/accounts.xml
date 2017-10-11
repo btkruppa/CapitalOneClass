@@ -1,0 +1,10 @@
+<bank>
+	<account accNumber="1">
+		<balance>500.0</balance>
+		<customer>Brunda</customer>
+	</account>
+	<account accNumber="2">
+		<balance>1000.0</balance>
+		<customer>Puru</customer>
+	</account>
+</bank>
