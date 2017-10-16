@@ -13,7 +13,7 @@ public class ConnectionUtility {
 	public Connection getConnection() {
 		Properties dbProps = new Properties();
 		try {
-			dbProps.load(new FileInputStream("C:\\Users\\USER\\eclipse-workspace\\FrontControllerProject\\src\\main\\resources\\database.properties"));
+			dbProps.load(new FileInputStream("C:\\Users\\USER\\Documents\\CapitalOneRepo\\FrontControllerProject\\src\\main\\resources\\database.properties"));
 			Class.forName("org.postgresql.Driver");
 			
 			return DriverManager.getConnection(dbProps.getProperty("url"), dbProps.getProperty("username"),

@@ -2,8 +2,10 @@ package com.capital.one.controllers;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,6 +18,23 @@ public class FrontController extends DefaultServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
+		
+		Enumeration<String> names = req.getHeaderNames();
+		Cookie[] cookies = req.getCookies();
+		System.out.println("cookies: ");
+		if(cookies != null) {
+			
+			for(Cookie cookie: cookies) {
+				System.out.println(cookie.getName() + ": " + cookie.getValue());
+			}
+		}
+		
+//		while(names.hasMoreElements()) {
+//			String name = names.nextElement();
+//			System.out.println(name + ": " + req.getHeader(name));
+//		}
 		log.trace("full url: " + req.getRequestURI());
 		String requestUrl = req.getRequestURI().substring(req.getContextPath().length());
 		log.debug("get request made with url: " + requestUrl);
@@ -31,8 +50,8 @@ public class FrontController extends DefaultServlet {
 			userController.processGetRequests(req, resp);
 		}
 		
-		req.getRequestDispatcher("/static/loginPage.html").forward(req, resp);
-		
+//		req.getRequestDispatcher("/static/loginPage.html").forward(req, resp);
+		throw new ServletException();
 		
 	}
 
