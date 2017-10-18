@@ -7,7 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  yup = 'yes';
+  yup: string;
+
+  constructor() {
+    this.yup = 'yes';
+  }
+
   change() {
     this.yup = 'no';
   }
