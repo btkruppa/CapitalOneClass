@@ -1,0 +1,15 @@
+.dotted-red {
+  border: 10px red dotted ;
+}
+
+.blue-back {
+  background-color: blue;
+}
+
+.my-container .blue-back {
+  background-color: purple;
+}
+
+.colored-fonts {
+  color: yellow;
+}
