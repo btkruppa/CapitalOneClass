@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { UIRouterModule } from '@uirouter/angular';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {NavComponent} from './nav/nav.component';
@@ -13,7 +14,7 @@ import {NavComponent} from './nav/nav.component';
     BrowserModule,
     HttpModule,
     NgbModule.forRoot(),
-    NgbModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
