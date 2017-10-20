@@ -14,20 +14,21 @@ public class ErsReimbursementUpdateDaoImpl implements ErsReimbursementUpdateDaoI
 	private ErsConnectionUtility ersConUtil = new ErsConnectionUtility();
 
 	@Override
-	public ErsReimbursement updateReimbursement(String username) {
+	public void updateReimbursement(String username, String reimbStatus) {
+		System.out.println("method");
 		Connection conn = ersConUtil.getConnection();
 		try {
-			PreparedStatement reimbursementType = conn.prepareStatement("UPDATE * FROM ers_reimbursement_type WHERE reimb_type_id = ?");
-			reimbursementType.setString(1, username);
-			ResultSet rs = reimbursementType.executeQuery();
+			System.out.println("test");
+			PreparedStatement update = conn.prepareStatement("UPDATE * FROM ers_reimbursement_type WHERE reimb_type_id = ?");
+			update.setString(1, username);
+			update.setString(1, reimbStatus );
+			ResultSet rs = update.executeQuery();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
-		
-		return null;
 	}
 	
 }
