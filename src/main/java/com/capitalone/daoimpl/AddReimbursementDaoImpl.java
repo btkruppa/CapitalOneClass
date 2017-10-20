@@ -7,35 +7,30 @@ import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
-import com.capitalone.beans.ErsUserRoles;
-import com.capitalone.daointerfaces.ErsUserRolesDaoInterface;
+import com.capitalone.beans.ErsReimbursement;
+import com.capitalone.daointerfaces.AddReimbursementDaoInterface;
 import com.capitalone.utilities.ErsConnectionUtility;
 
-public class ErsUserRolesDaoImpl implements ErsUserRolesDaoInterface {
+public class AddReimbursementDaoImpl implements AddReimbursementDaoInterface {
 	
 	private Logger log = Logger.getRootLogger();
 	
 	private ErsConnectionUtility ersConUtil = new ErsConnectionUtility();
 	
 	@Override
-	public ErsUserRoles findByErsUserRoleId(int ersUserRoleId) {
+	public ErsReimbursement addReimbursement(String username) {
 		Connection conn = ersConUtil.getConnection();
 		log.debug("DB Connection");
 		try {
 			PreparedStatement userRole = conn.prepareStatement("SELECT * FROM ers_user_roles WHERE ers_user_role_id = ?");
-			userRole.setInt(1, ersUserRoleId);
-//			ResultSet rs = userRole.executeQuery();
+			userRole.setString(1, username);
+			ResultSet rs = userRole.executeQuery();
 			log.debug(userRole);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
-	}
-	
-	public static void main(String[] args) {
-		ErsUserRolesDaoImpl er = new ErsUserRolesDaoImpl();
-		er.findByErsUserRoleId(1);
 	}
 
 }
