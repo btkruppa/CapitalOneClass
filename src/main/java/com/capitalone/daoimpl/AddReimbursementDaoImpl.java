@@ -18,16 +18,15 @@ public class AddReimbursementDaoImpl implements AddReimbursementDaoInterface {
 	private ErsConnectionUtility ersConUtil = new ErsConnectionUtility();
 	
 	@Override
-	public ErsReimbursement addReimbursement(String username) {
+	public ErsReimbursement addReimbursement(ErsReimbursement ersReimbursement) {
 		Connection conn = ersConUtil.getConnection();
 		log.debug("DB Connection");
 		try {
-			PreparedStatement userRole = conn.prepareStatement("INSERT * FROM ers_user_roles WHERE ers_user_role_id = ?");
-			userRole.setString(1, username);
-			ResultSet rs = userRole.executeQuery();
-			log.debug(userRole);
+			PreparedStatement addReimbursement = conn.prepareStatement("INSERT * FROM ers_user_roles WHERE ers_user_role_id = ?");
+//			addReimbursement.set
+			ResultSet rs = addReimbursement.executeQuery();
+			log.debug(addReimbursement);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
