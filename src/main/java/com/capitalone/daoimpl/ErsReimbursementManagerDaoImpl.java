@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.capitalone.beans.ErsReimbursement;
 import com.capitalone.daointerfaces.ErsReimbursementManagerDaoInterface;
@@ -13,8 +15,11 @@ public class ErsReimbursementManagerDaoImpl implements ErsReimbursementManagerDa
 	
 	private ErsConnectionUtility ersConUtil = new ErsConnectionUtility();
 	
+	List<ErsReimbursement> ersReimbursement = new ArrayList<ErsReimbursement>();
+	
 	@Override
-	public ErsReimbursement getReimbursementByManager() {
+	public List<ErsReimbursement> getReimbursementByManager() {
+		
 		
 		Connection conn = ersConUtil.getConnection();
 		
@@ -26,9 +31,9 @@ public class ErsReimbursementManagerDaoImpl implements ErsReimbursementManagerDa
 			
 			ResultSet rsManager = reimbursementStmtManager.executeQuery();
 			
-			ErsReimbursement reimbursementManager = null;
-			if(rsManager.next()) {
-				reimbursementManager = new ErsReimbursement(rsManager.getInt("reimb_id"),
+//			ErsReimbursement reimbursementManager = null;
+			while(rsManager.next()) {
+				 ersReimbursement.add(new ErsReimbursement(rsManager.getInt("reimb_id"),
 															rsManager.getFloat("reimb_amount"),
 															rsManager.getDate("reimb_submitted"),
 															rsManager.getDate("reimb_resolved"),
@@ -37,12 +42,17 @@ public class ErsReimbursementManagerDaoImpl implements ErsReimbursementManagerDa
 															rsManager.getString("user_first_name"),
 															rsManager.getString("user_last_name"),
 															rsManager.getString("reimb_status"),
-															rsManager.getString("reimb_type"));
+															rsManager.getString("reimb_type")));
 			}
-			return reimbursementManager;
+			return ersReimbursement;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static void main(String[] args) {
+		ErsReimbursementManagerDaoImpl ep = new ErsReimbursementManagerDaoImpl();
+		System.out.println(ep.getReimbursementByManager());
 	}
 }
