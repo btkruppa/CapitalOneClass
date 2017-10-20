@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.log4j.Logger;
 
+import com.capitalone.beans.ErsReimbursement;
 import com.capitalone.beans.ErsUsers;
 
 public class ErsFrontController extends DefaultServlet {
@@ -17,6 +18,9 @@ public class ErsFrontController extends DefaultServlet {
 	 private Logger log = Logger.getRootLogger();
 
 	private UserLoginController userController = new UserLoginController();
+	private ReimbursementUserController reimbursementUserController = new ReimbursementUserController();
+	private ReimbursementManagerController reimbursementManagerController = new ReimbursementManagerController();
+	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
