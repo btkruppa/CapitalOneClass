@@ -22,7 +22,7 @@ public class AddReimbursementDaoImpl implements AddReimbursementDaoInterface {
 		Connection conn = ersConUtil.getConnection();
 		log.debug("DB Connection");
 		try {
-			PreparedStatement userRole = conn.prepareStatement("SELECT * FROM ers_user_roles WHERE ers_user_role_id = ?");
+			PreparedStatement userRole = conn.prepareStatement("INSERT * FROM ers_user_roles WHERE ers_user_role_id = ?");
 			userRole.setString(1, username);
 			ResultSet rs = userRole.executeQuery();
 			log.debug(userRole);

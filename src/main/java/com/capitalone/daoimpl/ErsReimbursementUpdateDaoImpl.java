@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 import com.capitalone.beans.ErsReimbursement;
 import com.capitalone.daointerfaces.ErsReimbursementUpdateDaoInterface;
@@ -14,7 +15,7 @@ public class ErsReimbursementUpdateDaoImpl implements ErsReimbursementUpdateDaoI
 	private ErsConnectionUtility ersConUtil = new ErsConnectionUtility();
 
 	@Override
-	public void updateReimbursement(String username, String reimbStatus) {
+	public void updateReimbursement(String username, String reimbStatus, Date reimbResolved) {
 		System.out.println("method");
 		Connection conn = ersConUtil.getConnection();
 		try {
