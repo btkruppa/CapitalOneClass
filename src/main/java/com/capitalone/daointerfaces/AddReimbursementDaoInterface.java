@@ -1,9 +1,11 @@
 package com.capitalone.daointerfaces;
 
-import com.capitalone.beans.ErsReimbursement;
+import java.sql.Date;
+
 
 public interface AddReimbursementDaoInterface {
 	
-	public ErsReimbursement addReimbursement(ErsReimbursement ersReimbursement);
+	public void addReimbursement(float reimbAmount, Date reimbSubmitted, String reimbDesc, String reimbReceipt,
+            int reimbAuthor, int reimbStatus, int reimbType);
 
 }

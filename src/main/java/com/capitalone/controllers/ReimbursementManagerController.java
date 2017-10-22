@@ -13,10 +13,4 @@ public class ReimbursementManagerController {
 		return reimbursementManagerService.getReimbursementManagerService();
 	}
 	
-	public static void main(String[] args) {
-		ReimbursementManagerController rs = new ReimbursementManagerController();
-		System.out.println(rs.getReimbursementManagerController());
-		
-	}
-	
 }

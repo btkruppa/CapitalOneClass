@@ -50,9 +50,4 @@ public class ErsReimbursementManagerDaoImpl implements ErsReimbursementManagerDa
 		}
 		return null;
 	}
-	
-	public static void main(String[] args) {
-		ErsReimbursementManagerDaoImpl ep = new ErsReimbursementManagerDaoImpl();
-		System.out.println(ep.getReimbursementByManager());
-	}
 }

@@ -1,5 +1,6 @@
 package com.capitalone.daointerfaces;
 
+
 import com.capitalone.beans.ErsUsers;
 
 public interface ErsUserDaoInterface { 
