@@ -1,6 +1,8 @@
 package com.capitalone.controllers;
 
-import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.capitalone.service.UpdateReimbursementService;
 
@@ -8,9 +10,9 @@ public class UpdateReimbursementController {
 	
 	UpdateReimbursementService  updateReimbursementService = new UpdateReimbursementService();
 	
-	public void updateReimbursementSerController(String username, String reimbStatus, Date reimbResolved) {
+	public void updateReimbursementSerController(HttpServletRequest req, HttpServletResponse res) {
 		System.out.println("UpdateReimbursementController");
-		updateReimbursementService.updateReimbursementService(username, reimbStatus, reimbResolved);
+		updateReimbursementService.updateReimbursementService(req);
 		
 	}
 	

@@ -36,20 +36,7 @@ public class ReimbursementUserController {
 		}
 
 		return ersReimbursementJson;
-	}
-	
-	public static void main(String[] args) {
-		ReimbursementUserService reimbursementUserService = new ReimbursementUserService();
-		ObjectMapper om = new ObjectMapper();
-		List<ErsReimbursement> ersReimbursement = reimbursementUserService.getReimbursementUserService("devi");
-		String ersReimbursementJson = null;
-		try {
-			System.out.println(ersReimbursementJson = om.writeValueAsString(ersReimbursement));
-///		return ersReimbursementJson;
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 	}
 
 }
