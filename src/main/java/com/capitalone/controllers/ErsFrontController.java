@@ -19,6 +19,7 @@ public class ErsFrontController extends DefaultServlet {
 	private UserLoginController userController = new UserLoginController();	
 	private AddReimbursementController addReimbursementController = new AddReimbursementController();
 	private ReimbursementUserController reimbursementUserController = new ReimbursementUserController();
+	private UpdateReimbursementController updateReimbursementController = new UpdateReimbursementController();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,8 +30,23 @@ public class ErsFrontController extends DefaultServlet {
 //			System.out.println(reimbursementUserController.getReimbursementUserController(request, response));
 			response.getWriter().write(reimbursementUserController.getReimbursementUserController(request, response));
 			
-		}else		
+		}else if(requestUrl.startsWith("/static/decision")) {
+				//response.getWriter().write(reimbursementUserController.getReimbursementUserController(request, response));
+				updateReimbursementController.updateReimbursementSerController(request, response);
+			super.doPut(request, response);
+		} else	
 		super.doGet(request, response);
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String requestUrl = request.getRequestURI().substring(request.getContextPath().length());
+		System.out.println("Approve or decline" + requestUrl);
+		if (requestUrl.startsWith("/static/decision")) {
+			//response.getWriter().write(reimbursementUserController.getReimbursementUserController(request, response));
+			updateReimbursementController.updateReimbursementSerController(request, response);
+		super.doPut(request, response);
+	}
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {

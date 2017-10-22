@@ -1,9 +1,9 @@
 package com.capitalone.daointerfaces;
 
-import java.util.Date;
+import java.sql.Date;
 
 public interface ErsReimbursementUpdateDaoInterface {
 	
-	public void updateReimbursement(String username, String reimbStatus, Date reimbResolved);
+	public void updateReimbursement(int reimbId, int reimbResolver, int reimbStatusId, Date reimbResolved);
 
 }

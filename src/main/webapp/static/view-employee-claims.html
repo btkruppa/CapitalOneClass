@@ -22,44 +22,6 @@
 				<th>Type<th>
 			</tr>
 		</table>
-		
+		<script src = "viewemployee.js"></script>
 </body>
-<script>
-	function loadDoc() {
-
-		let xhr = new XMLHttpRequest();
-
-		// on success callback function
-		xhr.onload = function () {
-			let empReimbList = JSON.parse(this.responseText);
-			console.log(empReimbList)
-
-			empReimbList.forEach((reimburse) => {
-				console.log("here")
-				document.getElementsByClassName('reimbursement-list')[0].innerHTML += `
-                                                                <tr id="${reimburse.reimbId}">
-                                                                <td> ${reimburse.reimbId} </td>
-                                                                <td> ${reimburse.reimbAmount} </td>
-                                                                <td> ${reimburse.reimbSubmitted} </td>
-                                                                <td> ${reimburse.reimbResolved} </td>
-                                                                <td> ${reimburse.reimbDescription} </td>
-                                                        
-                                                                <td> ${reimburse.userFirstName +" " +reimburse.userLastName} </td>
-                                                                <td> ${reimburse.reimbResolver} </td>
-                                                                <td> ${reimburse.reimbStatus} </td>
-                                                                <td> ${reimburse.reimbType} </td>
-                                                </tr>`;
-												// <td> ${reimburse.reimbReceipt} </td>
-			})
-
-			console.log(this.responseText)
-		};
-
-		xhr.open("GET", "../viewEmployeeClaims", true);
-		xhr.send();
-	}
-	loadDoc();
-
-
-</script>
 </html>

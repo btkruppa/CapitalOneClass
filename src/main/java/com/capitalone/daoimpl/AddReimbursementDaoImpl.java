@@ -19,7 +19,8 @@ public class AddReimbursementDaoImpl implements AddReimbursementDaoInterface {
 		
 
 		try {
-			PreparedStatement addReimbursement = conn.prepareStatement("INSERT INTO ers_reimbursement (reimb_amount,  reimb_submitted, reimb_description, reimb_author, reimb_status_id, reimb_type_id) VALUES (?, ?, ?, ?, ?, ?)");
+			PreparedStatement addReimbursement = conn.prepareStatement(
+					"INSERT INTO ers_reimbursement (reimb_amount,  reimb_submitted, reimb_description, reimb_receipt, reimb_author, reimb_status_id, reimb_type_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
 //			  Byte receipt = Byte.valueOf(reimbReceipt);
 			
 //			Blob b =  conn.createBlob();
@@ -28,10 +29,10 @@ public class AddReimbursementDaoImpl implements AddReimbursementDaoInterface {
 			addReimbursement.setFloat(1, reimbAmount);
 			addReimbursement.setDate(2, reimbSubmitted);
 			addReimbursement.setString(3, reimbDesc);
-//			addReimbursement.setBlob(4, null);
-			addReimbursement.setInt(4, reimbAuthor);
-			addReimbursement.setInt(5, reimbStatus);
-			addReimbursement.setInt(6, reimbType);
+			addReimbursement.setString(4, reimbReceipt);
+			addReimbursement.setInt(5, reimbAuthor);
+			addReimbursement.setInt(6, reimbStatus);
+			addReimbursement.setInt(7, reimbType);
 			
 			addReimbursement.execute();
 			
