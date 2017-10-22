@@ -24,7 +24,7 @@ public class ErsReimbursementUpdateDaoImpl implements ErsReimbursementUpdateDaoI
 			update.setInt(2, reimbStatusId );
 			update.setDate(3, reimbResolved);
 			update.setInt(4, reimbId);
-			update.executeQuery();
+			update.execute();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
