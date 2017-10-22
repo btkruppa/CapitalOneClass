@@ -39,7 +39,11 @@ public class ErsReimbursementUserDaoImpl implements ErsReimbursementUserDaoInter
 						 									rsUser.getString("user_first_name"),
 						 									rsUser.getString("user_last_name"),
 						 									rsUser.getString("reimb_status"),
-						 									rsUser.getString("reimb_type")));
+						 									rsUser.getString("reimb_type"),
+						 									rsUser.getInt("reimb_author"),
+						 									rsUser.getInt("reimb_Resolver"),
+						 									rsUser.getInt("reimb_status_id"),
+						 									rsUser.getInt("reimb_type_Id")));
 			}
 			return ersReimbursement;
 		} catch (SQLException e) {

@@ -42,7 +42,11 @@ public class ErsReimbursementManagerDaoImpl implements ErsReimbursementManagerDa
 															rsManager.getString("user_first_name"),
 															rsManager.getString("user_last_name"),
 															rsManager.getString("reimb_status"),
-															rsManager.getString("reimb_type")));
+															rsManager.getString("reimb_type"),
+															rsManager.getInt("reimbAuthor"),
+						 									rsManager.getInt("reimbResolver"),
+						 									rsManager.getInt("reimbStatusId"),
+						 									rsManager.getInt("reimbTypeId")));
 			}
 			return ersReimbursement;
 		} catch (SQLException e) {
