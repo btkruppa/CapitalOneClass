@@ -1,35 +1,43 @@
 package com.capitalone.daoimpl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
-
-import com.capitalone.beans.ErsReimbursement;
 import com.capitalone.daointerfaces.AddReimbursementDaoInterface;
 import com.capitalone.utilities.ErsConnectionUtility;
 
 public class AddReimbursementDaoImpl implements AddReimbursementDaoInterface {
 	
-	private Logger log = Logger.getRootLogger();
-	
 	private ErsConnectionUtility ersConUtil = new ErsConnectionUtility();
 	
 	@Override
-	public ErsReimbursement addReimbursement(ErsReimbursement ersReimbursement) {
+	public void addReimbursement(float reimbAmount, Date reimbSubmitted, String reimbDesc, String reimbReceipt,
+            int reimbAuthor, int reimbStatus, int reimbType) {
 		Connection conn = ersConUtil.getConnection();
-		log.debug("DB Connection");
+		
+
 		try {
-			PreparedStatement addReimbursement = conn.prepareStatement("INSERT * FROM ers_user_roles WHERE ers_user_role_id = ?");
-			addReimbursement.setObject(1, "");
-			ResultSet rs = addReimbursement.executeQuery();
-			log.debug(addReimbursement);
+			PreparedStatement addReimbursement = conn.prepareStatement("INSERT INTO ers_reimbursement (reimb_amount,  reimb_submitted, reimb_description, reimb_author, reimb_status_id, reimb_type_id) VALUES (?, ?, ?, ?, ?, ?)");
+//			  Byte receipt = Byte.valueOf(reimbReceipt);
+			
+//			Blob b =  conn.createBlob();
+//			b.setBytes(1, reimbDesc.getBytes());
+//			
+			addReimbursement.setFloat(1, reimbAmount);
+			addReimbursement.setDate(2, reimbSubmitted);
+			addReimbursement.setString(3, reimbDesc);
+//			addReimbursement.setBlob(4, null);
+			addReimbursement.setInt(4, reimbAuthor);
+			addReimbursement.setInt(5, reimbStatus);
+			addReimbursement.setInt(6, reimbType);
+			
+			addReimbursement.execute();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
 	}
-
+	
 }

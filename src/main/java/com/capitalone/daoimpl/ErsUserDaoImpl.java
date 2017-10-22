@@ -28,9 +28,6 @@ public class ErsUserDaoImpl implements ErsUserDaoInterface {
 			usersPreparedStatement.setString(1, username);
 			usersPreparedStatement.setString(2, password);
 			
-//			System.out.println(username);
-//			System.out.println(password);
-//			log.debug(usersPreparedStatement);
 			ResultSet rs = usersPreparedStatement.executeQuery();
 			
 			ErsUsers user = null;

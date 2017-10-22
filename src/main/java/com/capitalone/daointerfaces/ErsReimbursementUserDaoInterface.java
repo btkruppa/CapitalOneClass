@@ -6,6 +6,6 @@ import com.capitalone.beans.ErsReimbursement;
 
 public interface ErsReimbursementUserDaoInterface {
 
-	public ErsReimbursement getReimbursementByUser(String username);
+	public List<ErsReimbursement> getReimbursementByUser(String username);
 	
 }
