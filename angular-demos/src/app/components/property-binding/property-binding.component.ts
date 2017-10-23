@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './property-binding.component.html'
 })
 export class PropertyBindingComponent {
-  private flash = {
+  public flash = {
     question: 'What is property binding?',
     answer: `Write a template property binding to set a property of a view element. The binding sets
 the property to the value of a template expression.

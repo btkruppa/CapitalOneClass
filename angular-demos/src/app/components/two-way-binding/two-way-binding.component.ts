@@ -5,7 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './two-way-binding.component.html'
 })
 export class TwoWayBindingComponent implements OnInit {
-  public user = {};
+  public user = {
+    email: '',
+    password: ''
+  };
 
   ngOnInit() {
 
