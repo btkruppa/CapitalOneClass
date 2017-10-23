@@ -13,14 +13,14 @@ the property to the value of a template expression.
 It can also be used to provide input to child components`
   };
 
-  private styleObject = {
+  public styleObject = {
     color: 'red',
     border: '1px solid black',
     cursor: 'pointer',
     margin: '2em',
   };
 
-  private changeStyles() {
+  public changeStyles() {
     if (this.styleObject.color === 'red') {
       this.styleObject.color = 'blue';
       this.styleObject.border = '2px groove purple';
