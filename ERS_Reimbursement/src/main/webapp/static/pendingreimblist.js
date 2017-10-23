@@ -19,7 +19,7 @@ function loadPending() {
 					<td> ${reimburse.reimbStatus} </td>
 					<td> ${reimburse.reimbType} </td>
 					<td><button class="btn btn-sm btn-success" onclick="approvePending(${reimburse.reimbId})">Approve</button><br><br>
-						<button class="btn btn-sm btn-warning" onclick="approvePending(${reimburse.reimbId})">Decline</button></td>
+						<button class="btn btn-sm btn-warning" onclick="declinePending(${reimburse.reimbId})">Decline</button></td>
 					</tr>`;
 				}})
 	};
@@ -40,25 +40,29 @@ function approvePending(reimbId) {
 // var data = {};
 // data.id = reimbId;
 // var json = JSON.stringify(data);
+//	xhr.onreadystatechange = function() {
+//	    if (this.readyState == 4 && this.status == 200) {
+//	    		loadPending(this);
+//	    }
+//	};
 	xhr.open("PUT", "../approve?id="+reimbId, true);
 	xhr.setRequestHeader('Content-type','application/json');
 	xhr.send();
-//	if(xhr.readyState === 4 && xhr.status === 200) {
-//		           loadPending();
-//	}
-	setTimeout('loadPending()', 2000);
+	location.reload(true);
+	 //setTimeout('loadPending()', 2000);
 }
 
-function approvePending(reimbId) {	
+function declinePending(reimbId) {	
 	alert("You are Declining Reimbursement Id: " + reimbId);
 	let xhr = new XMLHttpRequest();
 	xhr.onload = function() {
-		console.log("approve button");
+		console.log("Decline button");
 		
 	};
 	xhr.open("PUT", "../decline?id="+reimbId, true);
 	xhr.setRequestHeader('Content-type','application/json');
 	xhr.send();
-	setTimeout('loadPending()', 2000);
+	location.reload(true);
+	//setTimeout('loadPending()', 2000);
 }
 loadPending();

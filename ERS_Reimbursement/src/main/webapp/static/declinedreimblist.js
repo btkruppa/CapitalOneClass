@@ -8,7 +8,7 @@ function loadDeclined() {
 				document.getElementsByClassName('reimbursement-list-pedning')[0].innerHTML += `
 					<tr id="${reimburse.reimbId}">
 					<td> ${reimburse.reimbId} </td>
-					<td>$+ ${reimburse.reimbAmount} </td>
+					<td>	 ${reimburse.reimbAmount} </td>
 					<td> ${reimburse.reimbSubmitted} </td>
 					<td> ${reimburse.reimbResolved} </td>
 					<td> ${reimburse.reimbDesc} </td>
