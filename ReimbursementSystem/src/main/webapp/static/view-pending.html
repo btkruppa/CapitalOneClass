@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./ers.css">
+</head>
+<center>
+	<h1>ViewPendingTickets</h1>
+	<!--  <table class="grid"> -->
+	<form class="form-signin" id="pendingForm">
+	<tr>
+		<td>
+			<table border="ridge">
+				<thead>
+					<tr>
+					    <th>select</th> 
+						<th>ID</th>
+						<th>Amount</th>
+						<th>Date-Submitted</th>
+						<th>Date-Resolved</th>
+						<th>Description</th>
+						<th>First-Name</th>
+						<th>Last-Name</th>
+						<th>Type</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody id="table-container">
+					<!-- append data in here -->
+				</tbody>
+			</table>
+		</td>
+		<!--  <td>  <img src="./images.jpeg"></td>-->
+	</tr>
+	</table>
+	<button type="submit" form="pendingForm" value="Approve" onclick="processApprove();">Approve</button>
+	<button type="submit" form="pendingForm" value="Deny" onclick="processDeny();">Deny</button>
+	</form>
+	<script src="./view-pending.js"></script>
+	<script src="./process-pending.js"></script>
+</body>
+</html>
