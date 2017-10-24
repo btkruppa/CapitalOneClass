@@ -1,0 +1,35 @@
+img{
+	height:500px;
+}
+h1{
+	margin-left:350px;
+}
+.outtertable{
+	border-color : none;
+	
+	margin-left:70px;
+}
+th{
+	font-size : 27px;
+	font-style : Italic;
+}
+
+.scroll-it th, .scroll-it td {
+   border: 1px solid black;
+   padding: 20px;
+   text-align: left;
+}
+.scroll-it {
+    overflow:scroll;
+    height:368px;
+    display:block;
+    border-collapse: collapse;
+    background-color : lightgray;
+    width: 480px;
+    background-color : none;
+     margin-left: 30px;
+}
+.scroll-it tr:hover {background-color: green;}
+
+
+

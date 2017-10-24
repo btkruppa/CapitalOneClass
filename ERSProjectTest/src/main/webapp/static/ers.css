@@ -1,0 +1,36 @@
+.template-background{
+	margin-top: 40px;
+}
+img{
+	width : 500px;
+	height: 500px
+	margin-top: 200px;
+}
+
+button {
+    width: 500px;
+    background-color: gray;
+    height: 100px;
+    margin-left: 100px;
+    margin-top: 50px;
+    font-size: 20px;
+    
+}
+
+button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+
+.marquee {
+    white-space: nowrap;
+    -webkit-animation: LeftthenRight 4s linear;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.backimg {
+	background-image: url('../static/images/hands-cash.png');
+}
+

@@ -1,0 +1,34 @@
+img{
+	height:500px;
+}
+h1{
+	margin-left:350px;
+}
+.outter{
+	border-color : none;
+	margin-left:70px;
+	
+}
+th{
+	font-size : 20px;
+	font-style : Italic;
+}
+
+.scrollit th, .scrollit td {
+   border: 1px solid black;
+   padding: 12px;
+   text-align: left;
+}
+
+.scrollit {
+    overflow:scroll;
+    height:385px;
+    display:block;
+    border-collapse: collapse;
+    background-color : lightgray;
+    width: 510px;
+    background-color : none;
+    margin-left: 30px;
+}
+.scrollit tr:hover {background-color: green;}
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+<link rel="icon" href="../../favicon.ico">
+<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {
+	background-image: url("../static/newreq.jpeg");
+	background-size: 50% 130%;
+	background-repeat: no-repeat;
+	background-position: 700px 90px;
+}
+
+.newreqform {
+	max-width: 400px;
+}
+
+.dropdown {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+</style>
+</head>
+<body class="template-background">
+	<div class="container" class="center">
+		<form class="newreqform" action="/ERSProjectTest/newReq">
+			<div style="margin-top: 70px;">
+			<br/>
+			<h1 class="form-signin-heading" class="center">New Request Form</h1>
+			<br /> <label for="inputAmount" style="padding-right: 60px;"> Amount : </label>
+			<span></span> <input
+				id="inputAmount" name="amount" required
+				autofocus placeholder="in Dollars" /> 
+				<label for="inputDesc" style="padding-right: 30px;margin-top: 20px;"> Description :  </label><span>  </span> <input id="inputDesc"
+				name="desc"  style="margin-top: 20px" placeholder="Max 100 characters" />
+				
+			<br>
+			<div class="dropdown" style="margin-top: 20px" class="center">
+				<label class="center" for="inputAmount"> Reimbursement Type
+				</label> <select name="reimbType">
+					<option value="myselectedvalue" selected="selected">Lodge</option>
+					<option value="myselectedvalue" selected="selected">Travel</option>
+					<option value="myselectedvalue" selected="selected">Lodge</option>
+					<option value="myselectedvalue" selected="selected">Miscellaneous</option>
+				</select> <input type="hidden" name="reimbType" value="myselectedvalue" />
+			</div>
+			<label for="upload-photo" style="margin-top: 20px; padding-right: 5px">Receipt </label> <input type="file"
+				name="photo" style="margin-top: 20px" id="upload-photo" />
+			<button style="margin-top: 20px" class="btn btn-lg btn-primary btn-block" type="submit">Submit
+				Request</button>
+			</div>
+		</form>
+	</div>
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+		crossorigin="anonymous"></script>
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+	</script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+		integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+		crossorigin="anonymous"></script>
+	<script src="../../dist/js/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+</body>
+</html>
