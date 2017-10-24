@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Employee Page</title>
+	<meta charset="utf-8">
+
+	<link rel=“stylesheet” type="text/css" href=“/Users/jhy409/Documents/workspace/ErsProject/src/main/webapp/WEB-INF/Static/style.css”>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+  </style>
+</head>
+<body>
+
+<form class="form" role="form" action='/EPTrial1/Employee' method="post" autocomplete="off">
+	<fieldset>
+		<div id="legend">
+		  <legend class="">Add Reimbursement</legend>
+		</div>
+		<!--Reimb Amount-->
+		<div class="form-group row">
+            <label class="col-lg-offset-2 col-lg-2 col-form-label form-control-label">Reimb Amount</label>
+            <div class="col-lg-5">
+                <input class="form-control" type="text" name="amount" id="reimbAmount" placeholder="Enter Reimb Amount" size="25" maxlength="50">
+            </div>
+        </div>
+        <!--Reimb Description-->
+		<div class="form-group row">
+            <label class="col-lg-offset-2 col-lg-2 col-form-label form-control-label">Reimb Description</label>
+            <div class="col-lg-5">
+                <input class="form-control" type="text" name="description" id="reimbDescription" placeholder="Description">
+            </div>
+        </div>
+		<!--Reimb Type-->
+		<div class="form-group row">
+            <label class="col-lg-offset-2 col-lg-2 col-form-label form-control-label">Reimb Type</label>
+            <div class="col-lg-5">
+                <select class="form-control" name="reimb_type" id="">
+					<option>Select</option>
+					<option value="1">Food</option>
+					<option value="2">Lodging</option>
+					<option value="3">Travel</option>					
+					<option value="4">Other</option>
+				</select>
+            </div>
+        </div>
+		<!--Reimb Attachment-->
+		<div class="form-group row">
+            <label class="col-lg-offset-2 col-lg-2 col-form-label form-control-label">Reimb Attachment</label>
+            <div class="col-lg-5">
+                <input class="form-control" type="text" id="reimbAttachment">
+            </div>
+        </div>
+		<div class="form-group row">
+            <label class="col-lg-offset-2 col-lg-2 col-form-label form-control-label"></label>
+            <div class="col-lg-5">
+                <input type="reset" class="btn btn-secondary" value="Cancel">
+				<!-- <input type="button" class="btn btn-primary" value="Save Changes"> -->
+				<button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+	</fieldset>
+</form>
+
+	<div>
+		<input type="button" class="btn btn-info" value="Go back!" onclick="history.back()">
+	</div>
+</body>
+</html>

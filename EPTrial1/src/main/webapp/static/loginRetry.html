@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Expense Reimbursement System</title>
+<meta charset="utf-8">
+
+<link rel=“stylesheet”  href=“/static/style.css”>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+
+<body>
+	<h3 style="color:red;">Login failed... Please try again!!!</h3>
+<form class="form" role="form" action='/EPTrial1/Login' method="POST" autocomplete="off">
+	<fieldset>
+		<div id="legend">
+		  <legend class="">Login to Your ERS Account</legend>
+		</div>
+		<!--User Name-->
+		<div class="form-group row">
+            <label class="col-lg-offset-2 col-lg-2 col-form-label form-control-label">User Name</label>
+            <div class="col-lg-5">
+                <input class="form-control" type="text" id="userName" name="user_name" placeholder="Enter User Name">
+            </div>
+        </div>
+		<!--User Password-->
+		<div class="form-group row">
+            <label class="col-lg-offset-2 col-lg-2 col-form-label form-control-label">User Password</label>
+            <div class="col-lg-5">
+				<input class="form-control" type="text" id="userPassword" name="user_password" placeholder="Enter Password">
+            </div>
+        </div>		
+		<div class="form-group row">
+            <label class="col-lg-offset-2 col-lg-2 col-form-label form-control-label"></label>
+            <div class="col-lg-5">                			
+				<button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+	</fieldset>
+</form>
+</body>
+</html>

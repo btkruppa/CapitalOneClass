@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+<title>Insert title here</title>
+</head>
+<body>
+	<h3 class="text-center">Past Reimbursements List</h3>
+
+	<div id="allReimbs"> 
+		<div id="main" class="container">
+			<div class="table-header">
+			<h1 id="headerCount"></h1>
+	    		<table width="60%" class="table table-bordered" border="1">
+					<thead>
+						<tr>
+							<th>Date Submitted</th>
+							<th>Author</th>
+							<th>Description</th>
+							<th>Amount</th>							
+						</tr>
+					</thead>
+					<tbody id="emp-container"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div>
+		<input type="button" class="btn btn-info" value="Go back!" onclick="history.back()">
+	</div>
+
+<script src="./viewPastTickets.js"></script>
+</body>
+</html>
