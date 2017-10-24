@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<title>Welcome Manager!!!</title>
+
+
+
+<link href="signin.css" rel="stylesheet">
+
+</head>
+
+
+<body style="background-color: lightgray">
+	<center>
+		<h2 class form-signin-heading>View Tickets by Status
+			(Pending)....</h2>
+			
+			<br>
+			<br>
+
+		<div class="container"></div>
+		<form name="f1">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Select</th>
+						<th>Reimb_id</th>
+						<th>Amount</th>
+						<th>Description</th>
+						<th>Status Id</th>
+						<th>Type Id</th>
+
+					</tr>
+				</thead>
+				<tbody id="status-container">
+					<!-- content will be appended here -->
+				</tbody>
+			</table>
+		</form>
+
+
+
+		<center>
+			<br>
+			<button name="ReimbId" align=center onclick="getId()">APPROVE
+			</button>
+			<br>
+			<br>
+			<button name="deny" align=center onclick="getIdAgain()">DENY</button>
+		</center>
+
+
+		<br> <br> <a href="manager.html">Back to Manager Home
+			page</a>
+
+
+
+		<script src="./viewstatus.js"></script>
+		<script src="./approve.js"></script>
+		<script src="./deny.js"></script>
+</body>
+</html>

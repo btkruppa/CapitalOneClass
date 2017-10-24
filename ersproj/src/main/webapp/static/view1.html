@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<title>Welcome Manager!!!</title>
+
+	<link
+		href="c:/Users/miu834/Documents/workspace/java/eg/bootstrap-4.0.0-alpha.6/dist/css/bootstrap.min.css"
+		rel="stylesheet">
+	<link href="signin.css" rel="stylesheet">
+</head>
+
+<style>
+legend {
+	display: block;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+</style>
+
+
+<body style="background-color: lightgray">
+	<div class="container">
+		<center>
+			<h2 class form-signin-heading>View All Tickets....</h2>
+
+			<table class="table table-striped">
+				<thead>
+				<thead>
+					<tr>
+						<th>Reimb_id</th>
+						<th>Amount</th>
+
+						<th>Description</th>
+
+						<th>Status Id</th>
+						<th>Type Id</th>
+					</tr>
+				</thead>
+				<tbody id="reimb-container">
+					<!-- content will be appended here -->
+				</tbody>
+			</table>
+		</center>
+	</div>
+
+	<br>
+	<center>
+		<div>
+			<form>
+
+				<fieldset>
+					<legend>Status Ids for Reimbursement Tickets:</legend>
+					<label>Initiated -1 *</label> <label>In progress-2 *</label> <label>Approved
+						-3 *</label> <label>Denied -4 *</label>
+				</fieldset>
+			</form>
+		</div>
+
+		<hr>
+		<div>
+			<a href="manager.html">Back to Manager Home page</a>
+		</div>
+	</center>
+	</hr>
+
+	<script src="./view1.js"></script>
+</body>
+</html>
