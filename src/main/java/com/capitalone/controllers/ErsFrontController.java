@@ -25,13 +25,11 @@ public class ErsFrontController extends DefaultServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		String requestUrl = request.getRequestURI().substring(request.getContextPath().length());
-		System.out.println("view employee" + requestUrl);
+		log.debug("view employee" + requestUrl);
 		if (requestUrl.startsWith("/viewEmployeeClaims")) {
-//			System.out.println(reimbursementUserController.getReimbursementUserController(request, response));
 			response.getWriter().write(reimbursementUserController.getReimbursementUserController(request, response));
 			
 		}else if(requestUrl.startsWith("/static/decision")) {
-				//response.getWriter().write(reimbursementUserController.getReimbursementUserController(request, response));
 				updateReimbursementController.updateReimbursementSerController(request, response);
 			super.doPut(request, response);
 		} else	
@@ -41,9 +39,8 @@ public class ErsFrontController extends DefaultServlet {
 	@Override
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requestUrl = request.getRequestURI().substring(request.getContextPath().length());
-		System.out.println("Approve or decline" + requestUrl);
+		log.debug("Approve or decline" + requestUrl);
 		if (requestUrl.startsWith("/static/decision")) {
-			//response.getWriter().write(reimbursementUserController.getReimbursementUserController(request, response));
 			updateReimbursementController.updateReimbursementSerController(request, response);
 		super.doPut(request, response);
 	}
@@ -51,7 +48,7 @@ public class ErsFrontController extends DefaultServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		String requestUrl = req.getRequestURI().substring(req.getContextPath().length());
-		System.out.println("front cntorller" + requestUrl);
+		log.debug("front cntorller" + requestUrl);
 		HttpSession session = req.getSession(true);
 
 		if (requestUrl.startsWith("/login")) {
@@ -61,7 +58,6 @@ public class ErsFrontController extends DefaultServlet {
 				session.setAttribute("user", ersUser);
 				String role = ersUser.getUserRole();
 				log.debug(role);
-				System.out.println(role);
 				if(role.equals("manager")) {					
 					res.sendRedirect("/ExpenseReimbursementSystem/static/manager.html");
 				}else if (role.equals("employee")) {
@@ -75,9 +71,9 @@ public class ErsFrontController extends DefaultServlet {
 			
 		}else if(requestUrl.startsWith("/static/registration")) {
 					addReimbursementController.addReimbursementController(req, res);
-					System.out.println("submit page");
+					log.debug("submit page");
 					res.sendRedirect("/ExpenseReimbursementSystem/static/employee.html");
-			
+					
 		}
 
 	}

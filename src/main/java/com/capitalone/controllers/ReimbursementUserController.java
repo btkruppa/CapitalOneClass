@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.capitalone.beans.ErsReimbursement;
 import com.capitalone.beans.ErsUsers;
 import com.capitalone.service.ReimbursementUserService;
@@ -15,7 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ReimbursementUserController {
 	
 	ReimbursementUserService reimbursementUserService = new ReimbursementUserService();
-
+	private Logger log = Logger.getRootLogger();
 	
 	public String getReimbursementUserController(HttpServletRequest req, HttpServletResponse res) {
 		ObjectMapper om = new ObjectMapper();
@@ -23,7 +25,7 @@ public class ReimbursementUserController {
 		HttpSession session = req.getSession();
         ErsUsers ersUser =  (ErsUsers) session.getAttribute("user");
         String ersUsername = ersUser.getErsUsername();
-        System.out.println("username in view user controller :" + ersUsername);
+        log.debug("username in view user controller :" + ersUsername);
 		
 		List<ErsReimbursement> ersReimbursement = reimbursementUserService.getReimbursementUserService(ersUsername);
 		String ersReimbursementJson = null;

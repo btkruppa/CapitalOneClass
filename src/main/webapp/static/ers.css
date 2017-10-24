@@ -47,6 +47,13 @@ body {
   }
   .cancel-btn{
     color: #fff;
-    background-color: #ff000f;
+    background-color:orangered;
     border-color: #ff000f;
+  }
+  .form-control-update{
+    width: 85%;
+    background-color: beige;
+  }
+  .error-color{
+    color: red;
   }

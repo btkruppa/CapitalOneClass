@@ -5,10 +5,14 @@ import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.capitalone.beans.ErsUsers;
 import com.capitalone.daoimpl.AddReimbursementDaoImpl;
 
 public class AddReimbursementService {
+	
+	private Logger log = Logger.getRootLogger();
 	
 	AddReimbursementDaoImpl addReimbursementDaoImpl = new AddReimbursementDaoImpl();
 	
@@ -20,11 +24,10 @@ public class AddReimbursementService {
         String receipt = req.getParameter("receipt");
         int reimbType = 0;
         
-        System.out.println("AddReimbursementService");
+        log.debug("Add Reimbursement Service");
 
         if (req.getParameter("reimbType").equals("Lodging")) {
                         reimbType = 1;
-                        System.out.println(reimbType);
         } else if (req.getParameter("reimbType").equals("Travel")) {
                         reimbType = 2;
         } else if (req.getParameter("reimbType").equals("Food")) {

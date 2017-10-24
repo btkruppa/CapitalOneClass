@@ -5,20 +5,21 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
 import com.capitalone.daointerfaces.AddReimbursementDaoInterface;
 import com.capitalone.utilities.ErsConnectionUtility;
 
 public class AddReimbursementDaoImpl implements AddReimbursementDaoInterface {
 	
 	private ErsConnectionUtility ersConUtil = new ErsConnectionUtility();
+	private Logger log = Logger.getRootLogger();
 	
 	@Override
 	public void addReimbursement(float reimbAmount, Date reimbSubmitted, String reimbDesc, String reimbReceipt,
             int reimbAuthor, int reimbStatus, int reimbType) {
-		Connection conn = ersConUtil.getConnection();
-		
-
-		try {
+			log.debug("Add Reimbursement Dao Implementation");
+		try(Connection conn = ersConUtil.getConnection()) {
 			PreparedStatement addReimbursement = conn.prepareStatement(
 					"INSERT INTO ers_reimbursement (reimb_amount,  reimb_submitted, reimb_description, reimb_receipt, reimb_author, reimb_status_id, reimb_type_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
 //			  Byte receipt = Byte.valueOf(reimbReceipt);

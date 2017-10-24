@@ -7,21 +7,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.capitalone.beans.ErsReimbursement;
 import com.capitalone.daointerfaces.ErsReimbursementUserDaoInterface;
 import com.capitalone.utilities.ErsConnectionUtility;
 
 public class ErsReimbursementUserDaoImpl implements ErsReimbursementUserDaoInterface {
 
+	private Logger log = Logger.getRootLogger();
 	private ErsConnectionUtility ersConUtil = new ErsConnectionUtility();
 	List<ErsReimbursement> ersReimbursement = new ArrayList<ErsReimbursement>();
 	
 	@Override
 	public List<ErsReimbursement> getReimbursementByUser(String username) {
+		log.debug("Retrieve Employee Reimbursement");
 		
-		Connection conn = ersConUtil.getConnection();
-		
-		try {
+		try(Connection conn = ersConUtil.getConnection()) {
 			PreparedStatement reimbursementStmtUser = conn.prepareStatement(
 					"SELECT * FROM ers_reimbursement JOIN ers_users ON (ers_reimbursement.reimb_author = ers_users.ers_users_id) JOIN ers_reimbursement_status ON (ers_reimbursement.reimb_status_id = ers_reimbursement_status.reimb_status_id) JOIN ers_reimbursement_type ON (ers_reimbursement.reimb_type_id = ers_reimbursement_type.reimb_type_id) WHERE ers_username = ?");
 			reimbursementStmtUser.setString(1, username);
@@ -51,11 +53,5 @@ public class ErsReimbursementUserDaoImpl implements ErsReimbursementUserDaoInter
 		}
 		return null;
 	}
-	
-	public static void main(String[] args) {
-		ErsReimbursementUserDaoImpl ers = new ErsReimbursementUserDaoImpl();
-		ers.getReimbursementByUser("devi");
-	}
-	
 	
 }
